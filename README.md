@@ -1,2 +1,2 @@
 # fedasync-with-fairness
-FedAsync with proposed fairness improvements
+FedAsync with proposed fairness improvements.
