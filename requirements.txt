@@ -15,3 +15,5 @@ pandas
 wandb
 torchmetrics
 scikit-learn
+notebook
+matplotlib

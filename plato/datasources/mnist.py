@@ -5,7 +5,7 @@ from torchvision import datasets, transforms
 import torch
 from plato.config import Config
 from plato.datasources import base
-
+import torch.utils.data as data_utils
 
 class DataSource(base.DataSource):
     """ The MNIST dataset. """
@@ -26,7 +26,10 @@ class DataSource(base.DataSource):
                                       train=False,
                                       download=True,
                                       transform=_transform)
-
+        
+        indices = torch.arange(1000)
+        train_dataset = data_utils.Subset(train_dataset, indices) # TODO: reduce training set to save ress.
+        
         train_len = int(len(train_dataset) * 0.8)
         validation_len = int(len(train_dataset) - train_len)
 
