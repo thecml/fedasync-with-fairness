@@ -17,3 +17,8 @@ torchmetrics
 scikit-learn
 notebook
 matplotlib
+Pillow
+idx2numpy
+opencv-python
+flwr
+tensorflow
