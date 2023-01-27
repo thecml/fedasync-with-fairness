@@ -1,0 +1,62 @@
+======== Running on http://127.0.0.1:8998 ========
+(Press CTRL+C to quit)
+[INFO][12:05:23]: [cifar10_low-poly-27/01-12:05] initiated wandb logging for experiment <cifar10_low-poly>
+[INFO][12:05:23]: [Server #21452] initiated wandb logging for experiment <cifar10_low-poly>
+[INFO][12:05:23]: [Server #21452] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:05:27]: 127.0.0.1 [27/Jan/2023:11:05:27 +0000] "GET /socket.io/?transport=polling&EIO=4&t=1674817527.1682072 HTTP/1.1" 200 293 "-" "Python/3.8 aiohttp/3.8.3"
+[INFO][12:05:27]: [Server #21452] A new client just connected.
+[INFO][12:05:27]: [Server #21452] New client with id #2 arrived.
+[INFO][12:05:27]: 127.0.0.1 [27/Jan/2023:11:05:27 +0000] "GET /socket.io/?transport=polling&EIO=4&t=1674817527.2266827 HTTP/1.1" 200 293 "-" "Python/3.8 aiohttp/3.8.3"
+[INFO][12:05:27]: [Server #21452] A new client just connected.
+[INFO][12:05:27]: [Server #21452] New client with id #1 arrived.
+[INFO][12:05:27]: [Server #21452] Starting training.
+[INFO][12:05:27]:
+[93m[1m[Server #21452] Starting round 1/1.
+[INFO][12:05:27]: !--[Server #21452] Clients count of 2 must be smaller or equal to clients pool of 2
+[INFO][12:05:27]: [Server #21452] Selected clients: [1, 2]
+[INFO][12:05:27]: [Server #21452] Selecting client #1 for training.
+[INFO][12:05:27]: [Server #21452] Sending the current model to client #1 (simulated).
+[INFO][12:05:27]: [Server #21452] Sending 3.06 MB of payload data to client #1 (simulated).
+[INFO][12:05:27]: [Server #21452] Selecting client #2 for training.
+[INFO][12:05:27]: [Server #21452] Sending the current model to client #2 (simulated).
+[INFO][12:05:27]: [Server #21452] Sending 3.06 MB of payload data to client #2 (simulated).
+[INFO][12:05:33]: [Server #21452] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:05:43]: [Server #21452] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:05:53]: [Server #21452] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:06:03]: [Server #21452] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:06:13]: [Server #21452] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:06:23]: [Server #21452] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:06:33]: [Server #21452] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:06:43]: [Server #21452] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:06:48]: [Server #21452] Received 3.06 MB of payload data from client #1 (simulated).
+[INFO][12:06:52]: [Server #21452] Received 3.06 MB of payload data from client #2 (simulated).
+[INFO][12:06:52]: [Server #21452] All 2 client report(s) received. Processing.
+[INFO][12:06:52]: [Server #21452] Logging report from [Client-1]
+[INFO][12:06:52]: [Server #21452] Logging report from [Client-2]
+[INFO][12:06:52]: [Server #21452] Updated weights have been received.
+[INFO][12:06:52]: [Server #21452] Aggregating model weights directly rather than weight deltas.
+[INFO][12:06:52]: [Server #21452] Finished aggregating updated weights.
+[INFO][12:06:52]: [Server #21452] Average client auroc: 0.46%.
+[INFO][12:06:52]: [Server #21452] Average client accuracy: 10.00%.
+[INFO][12:06:52]: [Server #21452] Average client test loss: 2.31
+[INFO][12:06:52]: [Server #21452] Average client train loss: 2.00
+[INFO][12:06:52]: [Server #21452] Average client precision: 0.01
+[INFO][12:06:52]: [Server #21452] Average client recall: 0.10
+[INFO][12:06:52]: [Server #21452] Global model accuracy: 10.00%
+[INFO][12:06:52]: [Server #21452] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_1.pth.
+[INFO][12:06:52]: [Server #21452] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_1.pth.
+[INFO][12:06:52]: 2 aggregations performed in 1 rounds.
+[INFO][12:06:52]: Target number of aggregations reached.
+[INFO][12:06:52]: Closing the connection to client #2.
+[INFO][12:06:52]: Closing the connection to client #1.
+[INFO][12:06:52]: [Server #21452] performing and logging final validation of all checkpoints from round 1 to 1
+[INFO][12:06:52]: [Server #21452] performing and logging final test of final model
+[INFO][12:06:52]: [Server #21452] loading best model from round(1) with metric(0.10000000149011612)
+[INFO][12:06:52]: [Server #21452] Loading a model from ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_1.pth.
+aggregate_weights with 2 updates
+Round(1): aggregating client 1 with staleness 0 resulting staleness function returning 0.9
+Round(1): aggregating client 2 with staleness 0 resulting staleness function returning 0.9
+[34m[1mwandb[39m[22m: [33mWARNING[39m wandb uses only 10000 data points to create the plots.
+[INFO][12:07:37]: [Server #21452] Training concluded.
+[INFO][12:07:37]: [Server #21452] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/lowgpuCifar10.pth.
+[INFO][12:07:37]: [Server #21452] Closing the server.

@@ -240,6 +240,9 @@ class Config:
 
             if "parameters" in config:
                 Config.parameters = Config.namedtuple_from_dict(config["parameters"])
+                
+            if "wandb" in config:
+                Config.wandb = Config.namedtuple_from_dict(config["wandb"])
 
             # Setting the experiment name for wandb logging
             Config.params["experiment_name"] = cls._timestamp

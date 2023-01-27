@@ -106,8 +106,8 @@ class Server:
             else True
         )
 
-        # WanDB %TODO Add in
-        #self.wandb_logger = wandb_logger.WANDBLogger(None)
+        # WanDB
+        self.wandb_logger = wandb_logger.WANDBLogger(None)
 
         # Define best model checkpoint
         self.best_model_round = 0
@@ -315,13 +315,11 @@ class Server:
             port,
         )
 
-        # Registering wandb logger TODO: Add in
-        #self.wandb_logger.start()
-        #wandb.init(project="Embryos", group=Config().params["experiment_name"], entity="master-thesis-22")
-        #wandb.run.name = f"Server"
-        #logging.info(
-        #    "[{}] initiated wandb logging for experiment <{}>".format(self, Config().params["experiment_name"])
-        #)
+        # Registering wandb logger
+        self.wandb_logger.start()
+        logging.info(
+            "[{}] initiated wandb logging for experiment <{}>".format(self, Config().params["experiment_name"])
+        )
 
         self.sio = socketio.AsyncServer(
             ping_interval=self.ping_interval,
@@ -720,7 +718,7 @@ class Server:
                     self,
                     len(self.updates),
                 )
-                #self.log_updates_to_wandb() %TODO: Add in
+                self.log_updates_to_wandb()
                 await self._process_reports()
                 await self.wrap_up()
                 await self.select_clients()
@@ -1064,7 +1062,7 @@ class Server:
                 os.getpid(),
                 len(self.updates),
             )
-            # self.log_updates_to_wandb() % TODO: Add in
+            self.log_updates_to_wandb()
             await self._process_reports()
             await self.wrap_up()
             await self.select_clients()
@@ -1112,7 +1110,7 @@ class Server:
                 self,
                 len(self.updates),
             )
-            #self.log_updates_to_wandb() # TODO: Add in
+            self.log_updates_to_wandb()
             await self._process_reports()
             await self.wrap_up()
             await self.select_clients()
@@ -1155,7 +1153,7 @@ class Server:
                             self,
                             len(self.updates),
                         )
-                        #self.log_updates_to_wandb() % TODO: Add in
+                        self.log_updates_to_wandb()
                         await self._process_reports()
                         await self.wrap_up()
                         await self.select_clients()
@@ -1253,20 +1251,6 @@ class Server:
 
         if target_accuracy and self.accuracy >= target_accuracy:
             logging.info("[%s] Target accuracy reached.", self)
-            await self.close()
-
-        if target_perplexity and self.accuracy <= target_perplexity:
-            logging.info("[%s] Target perplexity reached.", self)
-            await self.close()
-
-        if self.current_round >= Config().trainer.rounds:
-            logging.info("Target number of training rounds reached.")
-            await self.close()
-
-        #TODO: Add back in when we enable WanDB
-        '''
-        if target_accuracy and self.accuracy >= target_accuracy:
-            logging.info("[%s] Target accuracy reached.", self)
             await self.close_connections()
             self.do_final_model_validation()
             self.do_final_model_test()
@@ -1294,7 +1278,6 @@ class Server:
                 self.do_final_model_validation()
                 self.do_final_model_test()
                 await self.close()
-        '''
 
     # pylint: disable=protected-access
     async def close(self):
@@ -1305,9 +1288,9 @@ class Server:
         self.server_will_close()
         self.callback_handler.call_event("on_server_will_close", self)
 
-        #self.wandb_logger.finish() TODO: Add in
-        #wandb.finish()
-        #await self.close_connections()
+        self.wandb_logger.finish()
+        wandb.finish()
+        await self.close_connections()
 
         os._exit(0)
 

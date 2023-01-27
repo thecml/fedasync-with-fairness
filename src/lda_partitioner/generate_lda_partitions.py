@@ -28,7 +28,6 @@ from flower_baselines.flwr_baselines.dataset.utils.common import (
     split_array_at_indices,
 )
 
-
 def gen_dataset_partitions(
     path,
     dataset_name,
@@ -48,7 +47,7 @@ def gen_dataset_partitions(
     for concentration in lda_concentrations:
         # partion LDA train
         concentration_dirname = ("/concentration_{}".format(concentration)).replace(".", "")
-        dist = partition_mnist_and_save(
+        dist = partition_dataset_and_save(
             dataset=(train_x, train_y),
             fed_dir=fed_dir+concentration_dirname,
             dirichlet_dist=None,
@@ -59,7 +58,7 @@ def gen_dataset_partitions(
 
         # Use dist distribution 'dist' from train generation
         # partion LDA val
-        partition_mnist_and_save(
+        partition_dataset_and_save(
             dataset=(val_x, val_y),
             fed_dir=fed_dir+concentration_dirname,
             dirichlet_dist=dist,
@@ -70,7 +69,7 @@ def gen_dataset_partitions(
 
         # test
         # partion LDA test
-        partition_mnist_and_save(
+        partition_dataset_and_save(
             dataset=(test_x, test_y),
             fed_dir=fed_dir+concentration_dirname,
             dirichlet_dist=dist,
@@ -93,7 +92,7 @@ def get_base_dataset(dataset_name):
 
     return train_x, train_y, val_x, val_y, test_x, test_y
 
-def partition_mnist_and_save(
+def partition_dataset_and_save(
     dataset,
     fed_dir,
     dirichlet_dist=None,
@@ -129,7 +128,6 @@ def partition_mnist_and_save(
 
     return dist
 
-
 def save_partitions(list_partitions, fed_dir, partition_type="train"):
     """Saves partitions to individual files.
     Args:
@@ -142,7 +140,6 @@ def save_partitions(list_partitions, fed_dir, partition_type="train"):
         os.makedirs(path_dir, exist_ok=True)
         save(f"{path_dir}/{partition_type}_samples.npy", partition[0])
         save(f"{path_dir}/{partition_type}_labels.npy", partition[1])
-
 
 if __name__ == "__main__":
     # Make partitioned datasets

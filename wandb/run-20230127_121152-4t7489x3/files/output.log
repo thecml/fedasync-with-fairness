@@ -1,0 +1,678 @@
+[INFO][12:11:59]: [cifar10_low-poly-27/01-12:11] initiated wandb logging for experiment <cifar10_low-poly>
+[INFO][12:11:59]: [Server #12976] initiated wandb logging for experiment <cifar10_low-poly>
+[INFO][12:11:59]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+======== Running on http://127.0.0.1:8998 ========
+(Press CTRL+C to quit)
+[INFO][12:12:05]: 127.0.0.1 [27/Jan/2023:11:12:05 +0000] "GET /socket.io/?transport=polling&EIO=4&t=1674817925.4887135 HTTP/1.1" 200 293 "-" "Python/3.8 aiohttp/3.8.3"
+[INFO][12:12:05]: [Server #12976] A new client just connected.
+[INFO][12:12:05]: [Server #12976] New client with id #2 arrived.
+[INFO][12:12:05]: 127.0.0.1 [27/Jan/2023:11:12:05 +0000] "GET /socket.io/?transport=polling&EIO=4&t=1674817925.5840259 HTTP/1.1" 200 293 "-" "Python/3.8 aiohttp/3.8.3"
+[INFO][12:12:05]: [Server #12976] A new client just connected.
+[INFO][12:12:05]: [Server #12976] New client with id #1 arrived.
+[INFO][12:12:05]: [Server #12976] Starting training.
+[INFO][12:12:05]:
+[93m[1m[Server #12976] Starting round 1/10.
+[INFO][12:12:05]: !--[Server #12976] Clients count of 2 must be smaller or equal to clients pool of 2
+[INFO][12:12:05]: [Server #12976] Selected clients: [1, 2]
+[INFO][12:12:05]: [Server #12976] Selecting client #1 for training.
+[INFO][12:12:05]: [Server #12976] Sending the current model to client #1 (simulated).
+[INFO][12:12:05]: [Server #12976] Sending 3.06 MB of payload data to client #1 (simulated).
+[INFO][12:12:05]: [Server #12976] Selecting client #2 for training.
+[INFO][12:12:05]: [Server #12976] Sending the current model to client #2 (simulated).
+[INFO][12:12:05]: [Server #12976] Sending 3.06 MB of payload data to client #2 (simulated).
+[INFO][12:12:09]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:12:19]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:12:29]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:12:39]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:12:49]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:12:59]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:13:09]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+aggregate_weights with 1 updates
+Round(1): aggregating client 1 with staleness 0 resulting staleness function returning 0.9
+[INFO][12:13:17]: [Server #12976] Received 3.06 MB of payload data from client #1 (simulated).
+[INFO][12:13:19]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:13:19]: [Server #12976] Logging report from [Client-1]
+[INFO][12:13:19]: [Server #12976] Updated weights have been received.
+[INFO][12:13:19]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:13:19]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:13:19]: [Server #12976] Average client auroc: 0.59%.
+[INFO][12:13:19]: [Server #12976] Average client accuracy: 10.00%.
+[INFO][12:13:19]: [Server #12976] Average client test loss: 2.30
+[INFO][12:13:19]: [Server #12976] Average client train loss: 2.01
+[INFO][12:13:19]: [Server #12976] Average client precision: 0.01
+[INFO][12:13:19]: [Server #12976] Average client recall: 0.10
+[INFO][12:13:19]: [Server #12976] Global model accuracy: 10.00%
+[INFO][12:13:19]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_1.pth.
+[INFO][12:13:19]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_1.pth.
+[INFO][12:13:19]: 1 aggregations performed in 1 rounds.
+[INFO][12:13:19]:
+[93m[1m[Server #12976] Starting round 2/10.
+[INFO][12:13:19]: !--[Server #12976] Clients still training [2]
+[INFO][12:13:19]: !--[Server #12976] Clients not aggregated []
+[INFO][12:13:19]: !--[Server #12976] Clients allowed for selection [1]
+[INFO][12:13:19]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:13:19]: [Server #12976] Selected clients: [1]
+[INFO][12:13:19]: [Server #12976] Selecting client #1 for training.
+[INFO][12:13:19]: [Server #12976] Sending the current model to client #1 (simulated).
+[INFO][12:13:19]: [Server #12976] Sending 3.06 MB of payload data to client #1 (simulated).
+[INFO][12:13:25]: [Server #12976] Received 3.06 MB of payload data from client #2 (simulated).
+aggregate_weights with 1 updates
+Round(2): aggregating client 2 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:13:29]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:13:29]: [Server #12976] Logging report from [Client-2]
+[INFO][12:13:29]: [Server #12976] Updated weights have been received.
+[INFO][12:13:29]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:13:29]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:13:29]: [Server #12976] Average client auroc: 0.57%.
+[INFO][12:13:29]: [Server #12976] Average client accuracy: 10.00%.
+[INFO][12:13:29]: [Server #12976] Average client test loss: 2.30
+[INFO][12:13:29]: [Server #12976] Average client train loss: 2.02
+[INFO][12:13:29]: [Server #12976] Average client precision: 0.01
+[INFO][12:13:29]: [Server #12976] Average client recall: 0.10
+[INFO][12:13:29]: [Server #12976] Global model accuracy: 10.00%
+[INFO][12:13:29]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_2.pth.
+[INFO][12:13:29]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_2.pth.
+[INFO][12:13:29]: 2 aggregations performed in 2 rounds.
+[INFO][12:13:29]:
+[93m[1m[Server #12976] Starting round 3/10.
+[INFO][12:13:29]: !--[Server #12976] Clients still training [1]
+[INFO][12:13:29]: !--[Server #12976] Clients not aggregated []
+[INFO][12:13:29]: !--[Server #12976] Clients allowed for selection [2]
+[INFO][12:13:29]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:13:29]: [Server #12976] Selected clients: [2]
+[INFO][12:13:29]: [Server #12976] Selecting client #2 for training.
+[INFO][12:13:29]: [Server #12976] Sending the current model to client #2 (simulated).
+[INFO][12:13:29]: [Server #12976] Sending 3.06 MB of payload data to client #2 (simulated).
+[INFO][12:13:39]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:13:49]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:13:59]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:14:09]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:14:19]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:14:24]: [Server #12976] Received 3.06 MB of payload data from client #1 (simulated).
+aggregate_weights with 1 updates
+Round(3): aggregating client 1 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:14:29]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:14:29]: [Server #12976] Logging report from [Client-1]
+[INFO][12:14:29]: [Server #12976] Updated weights have been received.
+[INFO][12:14:29]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:14:29]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:14:29]: [Server #12976] Average client auroc: 0.81%.
+[INFO][12:14:29]: [Server #12976] Average client accuracy: 31.52%.
+[INFO][12:14:29]: [Server #12976] Average client test loss: 1.81
+[INFO][12:14:29]: [Server #12976] Average client train loss: 1.80
+[INFO][12:14:29]: [Server #12976] Average client precision: 0.28
+[INFO][12:14:29]: [Server #12976] Average client recall: 0.32
+[INFO][12:14:29]: [Server #12976] Global model accuracy: 31.52%
+[INFO][12:14:29]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_3.pth.
+[INFO][12:14:29]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_3.pth.
+[INFO][12:14:29]: 3 aggregations performed in 3 rounds.
+[INFO][12:14:29]:
+[93m[1m[Server #12976] Starting round 4/10.
+[INFO][12:14:29]: !--[Server #12976] Clients still training [2]
+[INFO][12:14:29]: !--[Server #12976] Clients not aggregated []
+[INFO][12:14:29]: !--[Server #12976] Clients allowed for selection [1]
+[INFO][12:14:29]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:14:29]: [Server #12976] Selected clients: [1]
+[INFO][12:14:29]: [Server #12976] Selecting client #1 for training.
+[INFO][12:14:29]: [Server #12976] Sending the current model to client #1 (simulated).
+[INFO][12:14:29]: [Server #12976] Sending 3.06 MB of payload data to client #1 (simulated).
+[INFO][12:14:39]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:14:49]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:14:59]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:15:09]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:15:19]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:15:29]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:15:30]: [Server #12976] Received 3.06 MB of payload data from client #2 (simulated).
+aggregate_weights with 1 updates
+Round(4): aggregating client 2 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:15:39]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:15:39]: [Server #12976] Logging report from [Client-2]
+[INFO][12:15:39]: [Server #12976] Updated weights have been received.
+[INFO][12:15:39]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:15:39]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:15:39]: [Server #12976] Average client auroc: 0.77%.
+[INFO][12:15:39]: [Server #12976] Average client accuracy: 18.51%.
+[INFO][12:15:39]: [Server #12976] Average client test loss: 2.19
+[INFO][12:15:39]: [Server #12976] Average client train loss: 1.83
+[INFO][12:15:39]: [Server #12976] Average client precision: 0.24
+[INFO][12:15:39]: [Server #12976] Average client recall: 0.19
+[INFO][12:15:39]: [Server #12976] Global model accuracy: 18.51%
+[INFO][12:15:39]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_4.pth.
+[INFO][12:15:39]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_4.pth.
+[INFO][12:15:39]: 4 aggregations performed in 4 rounds.
+[INFO][12:15:39]:
+[93m[1m[Server #12976] Starting round 5/10.
+[INFO][12:15:39]: !--[Server #12976] Clients still training [1]
+[INFO][12:15:39]: !--[Server #12976] Clients not aggregated []
+[INFO][12:15:39]: !--[Server #12976] Clients allowed for selection [2]
+[INFO][12:15:39]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:15:39]: [Server #12976] Selected clients: [2]
+[INFO][12:15:39]: [Server #12976] Selecting client #2 for training.
+[INFO][12:15:39]: [Server #12976] Sending the current model to client #2 (simulated).
+[INFO][12:15:39]: [Server #12976] Sending 3.06 MB of payload data to client #2 (simulated).
+[INFO][12:15:49]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:15:59]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:16:09]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:16:19]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:16:27]: [Server #12976] Received 3.06 MB of payload data from client #1 (simulated).
+aggregate_weights with 1 updates
+Round(5): aggregating client 1 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:16:29]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:16:29]: [Server #12976] Logging report from [Client-1]
+[INFO][12:16:29]: [Server #12976] Updated weights have been received.
+[INFO][12:16:29]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:16:29]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:16:29]: [Server #12976] Average client auroc: 0.82%.
+[INFO][12:16:29]: [Server #12976] Average client accuracy: 31.53%.
+[INFO][12:16:29]: [Server #12976] Average client test loss: 1.96
+[INFO][12:16:29]: [Server #12976] Average client train loss: 1.75
+[INFO][12:16:29]: [Server #12976] Average client precision: 0.34
+[INFO][12:16:29]: [Server #12976] Average client recall: 0.32
+[INFO][12:16:29]: [Server #12976] Global model accuracy: 31.53%
+[INFO][12:16:29]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_5.pth.
+[INFO][12:16:29]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_5.pth.
+[INFO][12:16:29]: 5 aggregations performed in 5 rounds.
+[INFO][12:16:29]:
+[93m[1m[Server #12976] Starting round 6/10.
+[INFO][12:16:29]: !--[Server #12976] Clients still training [2]
+[INFO][12:16:29]: !--[Server #12976] Clients not aggregated []
+[INFO][12:16:29]: !--[Server #12976] Clients allowed for selection [1]
+[INFO][12:16:29]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:16:29]: [Server #12976] Selected clients: [1]
+[INFO][12:16:29]: [Server #12976] Selecting client #1 for training.
+[INFO][12:16:29]: [Server #12976] Sending the current model to client #1 (simulated).
+[INFO][12:16:29]: [Server #12976] Sending 3.06 MB of payload data to client #1 (simulated).
+[INFO][12:16:39]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:16:49]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:16:59]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:17:09]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:17:19]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:17:25]: [Server #12976] Received 3.06 MB of payload data from client #2 (simulated).
+aggregate_weights with 1 updates
+Round(6): aggregating client 2 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:17:29]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:17:29]: [Server #12976] Logging report from [Client-2]
+[INFO][12:17:29]: [Server #12976] Updated weights have been received.
+[INFO][12:17:29]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:17:29]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:17:29]: [Server #12976] Average client auroc: 0.81%.
+[INFO][12:17:29]: [Server #12976] Average client accuracy: 30.16%.
+[INFO][12:17:29]: [Server #12976] Average client test loss: 1.94
+[INFO][12:17:29]: [Server #12976] Average client train loss: 1.72
+[INFO][12:17:29]: [Server #12976] Average client precision: 0.33
+[INFO][12:17:29]: [Server #12976] Average client recall: 0.30
+[INFO][12:17:29]: [Server #12976] Global model accuracy: 30.16%
+[INFO][12:17:29]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_6.pth.
+[INFO][12:17:29]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_6.pth.
+[INFO][12:17:29]: 6 aggregations performed in 6 rounds.
+[INFO][12:17:29]:
+[93m[1m[Server #12976] Starting round 7/10.
+[INFO][12:17:29]: !--[Server #12976] Clients still training [1]
+[INFO][12:17:29]: !--[Server #12976] Clients not aggregated []
+[INFO][12:17:29]: !--[Server #12976] Clients allowed for selection [2]
+[INFO][12:17:29]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:17:29]: [Server #12976] Selected clients: [2]
+[INFO][12:17:29]: [Server #12976] Selecting client #2 for training.
+[INFO][12:17:29]: [Server #12976] Sending the current model to client #2 (simulated).
+[INFO][12:17:29]: [Server #12976] Sending 3.06 MB of payload data to client #2 (simulated).
+[INFO][12:17:39]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:17:49]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:17:59]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:18:09]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:18:19]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:18:25]: [Server #12976] Received 3.06 MB of payload data from client #1 (simulated).
+aggregate_weights with 1 updates
+Round(7): aggregating client 1 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:18:29]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:18:29]: [Server #12976] Logging report from [Client-1]
+[INFO][12:18:29]: [Server #12976] Updated weights have been received.
+[INFO][12:18:29]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:18:29]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:18:29]: [Server #12976] Average client auroc: 0.84%.
+[INFO][12:18:29]: [Server #12976] Average client accuracy: 36.12%.
+[INFO][12:18:29]: [Server #12976] Average client test loss: 1.83
+[INFO][12:18:29]: [Server #12976] Average client train loss: 1.65
+[INFO][12:18:29]: [Server #12976] Average client precision: 0.41
+[INFO][12:18:29]: [Server #12976] Average client recall: 0.36
+[INFO][12:18:29]: [Server #12976] Global model accuracy: 36.12%
+[INFO][12:18:29]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_7.pth.
+[INFO][12:18:29]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_7.pth.
+[INFO][12:18:29]: 7 aggregations performed in 7 rounds.
+[INFO][12:18:29]:
+[93m[1m[Server #12976] Starting round 8/10.
+[INFO][12:18:29]: !--[Server #12976] Clients still training [2]
+[INFO][12:18:29]: !--[Server #12976] Clients not aggregated []
+[INFO][12:18:29]: !--[Server #12976] Clients allowed for selection [1]
+[INFO][12:18:29]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:18:29]: [Server #12976] Selected clients: [1]
+[INFO][12:18:29]: [Server #12976] Selecting client #1 for training.
+[INFO][12:18:29]: [Server #12976] Sending the current model to client #1 (simulated).
+[INFO][12:18:29]: [Server #12976] Sending 3.06 MB of payload data to client #1 (simulated).
+[INFO][12:18:39]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:18:49]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:18:59]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:19:09]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:19:19]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:19:26]: [Server #12976] Received 3.06 MB of payload data from client #2 (simulated).
+aggregate_weights with 1 updates
+Round(8): aggregating client 2 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:19:29]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:19:29]: [Server #12976] Logging report from [Client-2]
+[INFO][12:19:29]: [Server #12976] Updated weights have been received.
+[INFO][12:19:29]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:19:29]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:19:29]: [Server #12976] Average client auroc: 0.84%.
+[INFO][12:19:29]: [Server #12976] Average client accuracy: 34.78%.
+[INFO][12:19:29]: [Server #12976] Average client test loss: 1.74
+[INFO][12:19:29]: [Server #12976] Average client train loss: 1.62
+[INFO][12:19:29]: [Server #12976] Average client precision: 0.36
+[INFO][12:19:29]: [Server #12976] Average client recall: 0.35
+[INFO][12:19:29]: [Server #12976] Global model accuracy: 34.78%
+[INFO][12:19:29]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_8.pth.
+[INFO][12:19:29]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_8.pth.
+[INFO][12:19:29]: 8 aggregations performed in 8 rounds.
+[INFO][12:19:29]:
+[93m[1m[Server #12976] Starting round 9/10.
+[INFO][12:19:29]: !--[Server #12976] Clients still training [1]
+[INFO][12:19:29]: !--[Server #12976] Clients not aggregated []
+[INFO][12:19:29]: !--[Server #12976] Clients allowed for selection [2]
+[INFO][12:19:29]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:19:29]: [Server #12976] Selected clients: [2]
+[INFO][12:19:29]: [Server #12976] Selecting client #2 for training.
+[INFO][12:19:29]: [Server #12976] Sending the current model to client #2 (simulated).
+[INFO][12:19:29]: [Server #12976] Sending 3.06 MB of payload data to client #2 (simulated).
+[INFO][12:19:39]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:19:49]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:19:59]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:20:09]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:20:19]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:20:26]: [Server #12976] Received 3.06 MB of payload data from client #1 (simulated).
+aggregate_weights with 1 updates
+Round(9): aggregating client 1 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:20:29]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:20:29]: [Server #12976] Logging report from [Client-1]
+[INFO][12:20:29]: [Server #12976] Updated weights have been received.
+[INFO][12:20:29]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:20:29]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:20:29]: [Server #12976] Average client auroc: 0.86%.
+[INFO][12:20:29]: [Server #12976] Average client accuracy: 39.89%.
+[INFO][12:20:29]: [Server #12976] Average client test loss: 1.63
+[INFO][12:20:29]: [Server #12976] Average client train loss: 1.58
+[INFO][12:20:29]: [Server #12976] Average client precision: 0.44
+[INFO][12:20:29]: [Server #12976] Average client recall: 0.40
+[INFO][12:20:29]: [Server #12976] Global model accuracy: 39.89%
+[INFO][12:20:29]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_9.pth.
+[INFO][12:20:29]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_9.pth.
+[INFO][12:20:29]: 9 aggregations performed in 9 rounds.
+[INFO][12:20:29]:
+[93m[1m[Server #12976] Starting round 10/10.
+[INFO][12:20:30]: !--[Server #12976] Clients still training [2]
+[INFO][12:20:30]: !--[Server #12976] Clients not aggregated []
+[INFO][12:20:30]: !--[Server #12976] Clients allowed for selection [1]
+[INFO][12:20:30]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:20:30]: [Server #12976] Selected clients: [1]
+[INFO][12:20:30]: [Server #12976] Selecting client #1 for training.
+[INFO][12:20:30]: [Server #12976] Sending the current model to client #1 (simulated).
+[INFO][12:20:30]: [Server #12976] Sending 3.06 MB of payload data to client #1 (simulated).
+[INFO][12:20:40]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:20:50]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:21:00]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:21:10]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:21:20]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:21:30]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:21:40]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:21:40]: [Server #12976] Received 3.06 MB of payload data from client #2 (simulated).
+aggregate_weights with 1 updates
+Round(10): aggregating client 2 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:21:50]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:21:50]: [Server #12976] Logging report from [Client-2]
+[INFO][12:21:50]: [Server #12976] Updated weights have been received.
+[INFO][12:21:50]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:21:50]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:21:50]: [Server #12976] Average client auroc: 0.86%.
+[INFO][12:21:50]: [Server #12976] Average client accuracy: 38.07%.
+[INFO][12:21:50]: [Server #12976] Average client test loss: 1.61
+[INFO][12:21:50]: [Server #12976] Average client train loss: 1.56
+[INFO][12:21:50]: [Server #12976] Average client precision: 0.50
+[INFO][12:21:50]: [Server #12976] Average client recall: 0.38
+[INFO][12:21:50]: [Server #12976] Global model accuracy: 38.07%
+[INFO][12:21:50]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_10.pth.
+[INFO][12:21:50]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_10.pth.
+[INFO][12:21:50]: 10 aggregations performed in 10 rounds.
+[INFO][12:21:50]:
+[93m[1m[Server #12976] Starting round 11/10.
+[INFO][12:21:50]: !--[Server #12976] Clients still training [1]
+[INFO][12:21:50]: !--[Server #12976] Clients not aggregated []
+[INFO][12:21:50]: !--[Server #12976] Clients allowed for selection [2]
+[INFO][12:21:50]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:21:50]: [Server #12976] Selected clients: [2]
+[INFO][12:21:50]: [Server #12976] Selecting client #2 for training.
+[INFO][12:21:50]: [Server #12976] Sending the current model to client #2 (simulated).
+[INFO][12:21:50]: [Server #12976] Sending 3.06 MB of payload data to client #2 (simulated).
+[INFO][12:22:00]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:22:10]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:22:20]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:22:30]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:22:33]: [Server #12976] Received 3.06 MB of payload data from client #1 (simulated).
+[INFO][12:22:40]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:22:40]: [Server #12976] Logging report from [Client-1]
+[INFO][12:22:40]: [Server #12976] Updated weights have been received.
+[INFO][12:22:40]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:22:40]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:22:40]: [Server #12976] Average client auroc: 0.87%.
+[INFO][12:22:40]: [Server #12976] Average client accuracy: 42.18%.
+[INFO][12:22:40]: [Server #12976] Average client test loss: 1.58
+[INFO][12:22:40]: [Server #12976] Average client train loss: 1.50
+[INFO][12:22:40]: [Server #12976] Average client precision: 0.47
+[INFO][12:22:40]: [Server #12976] Average client recall: 0.42
+[INFO][12:22:40]: [Server #12976] Global model accuracy: 42.18%
+[INFO][12:22:40]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_11.pth.
+[INFO][12:22:40]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_11.pth.
+[INFO][12:22:40]: 11 aggregations performed in 11 rounds.
+[INFO][12:22:40]:
+[93m[1m[Server #12976] Starting round 12/10.
+[INFO][12:22:40]: !--[Server #12976] Clients still training [2]
+[INFO][12:22:40]: !--[Server #12976] Clients not aggregated []
+[INFO][12:22:40]: !--[Server #12976] Clients allowed for selection [1]
+[INFO][12:22:40]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:22:40]: [Server #12976] Selected clients: [1]
+[INFO][12:22:40]: [Server #12976] Selecting client #1 for training.
+[INFO][12:22:40]: [Server #12976] Sending the current model to client #1 (simulated).
+[INFO][12:22:40]: [Server #12976] Sending 3.06 MB of payload data to client #1 (simulated).
+aggregate_weights with 1 updates
+Round(11): aggregating client 1 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:22:50]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:23:00]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:23:10]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:23:20]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+aggregate_weights with 1 updates
+Round(12): aggregating client 2 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:23:29]: [Server #12976] Received 3.06 MB of payload data from client #2 (simulated).
+[INFO][12:23:30]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:23:30]: [Server #12976] Logging report from [Client-2]
+[INFO][12:23:30]: [Server #12976] Updated weights have been received.
+[INFO][12:23:30]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:23:30]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:23:30]: [Server #12976] Average client auroc: 0.88%.
+[INFO][12:23:30]: [Server #12976] Average client accuracy: 42.25%.
+[INFO][12:23:30]: [Server #12976] Average client test loss: 1.54
+[INFO][12:23:30]: [Server #12976] Average client train loss: 1.51
+[INFO][12:23:30]: [Server #12976] Average client precision: 0.48
+[INFO][12:23:30]: [Server #12976] Average client recall: 0.42
+[INFO][12:23:30]: [Server #12976] Global model accuracy: 42.25%
+[INFO][12:23:30]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_12.pth.
+[INFO][12:23:30]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_12.pth.
+[INFO][12:23:30]: 12 aggregations performed in 12 rounds.
+[INFO][12:23:30]:
+[93m[1m[Server #12976] Starting round 13/10.
+[INFO][12:23:30]: !--[Server #12976] Clients still training [1]
+[INFO][12:23:30]: !--[Server #12976] Clients not aggregated []
+[INFO][12:23:30]: !--[Server #12976] Clients allowed for selection [2]
+[INFO][12:23:30]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:23:30]: [Server #12976] Selected clients: [2]
+[INFO][12:23:30]: [Server #12976] Selecting client #2 for training.
+[INFO][12:23:30]: [Server #12976] Sending the current model to client #2 (simulated).
+[INFO][12:23:30]: [Server #12976] Sending 3.06 MB of payload data to client #2 (simulated).
+[INFO][12:23:40]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:23:50]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:24:00]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:24:10]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:24:20]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:24:30]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:24:32]: [Server #12976] Received 3.06 MB of payload data from client #1 (simulated).
+aggregate_weights with 1 updates
+Round(13): aggregating client 1 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:24:40]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:24:40]: [Server #12976] Logging report from [Client-1]
+[INFO][12:24:40]: [Server #12976] Updated weights have been received.
+[INFO][12:24:40]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:24:40]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:24:40]: [Server #12976] Average client auroc: 0.88%.
+[INFO][12:24:40]: [Server #12976] Average client accuracy: 47.61%.
+[INFO][12:24:40]: [Server #12976] Average client test loss: 1.49
+[INFO][12:24:40]: [Server #12976] Average client train loss: 1.46
+[INFO][12:24:40]: [Server #12976] Average client precision: 0.52
+[INFO][12:24:40]: [Server #12976] Average client recall: 0.48
+[INFO][12:24:40]: [Server #12976] Global model accuracy: 47.61%
+[INFO][12:24:40]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_13.pth.
+[INFO][12:24:40]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_13.pth.
+[INFO][12:24:40]: 13 aggregations performed in 13 rounds.
+[INFO][12:24:40]:
+[93m[1m[Server #12976] Starting round 14/10.
+[INFO][12:24:40]: !--[Server #12976] Clients still training [2]
+[INFO][12:24:40]: !--[Server #12976] Clients not aggregated []
+[INFO][12:24:40]: !--[Server #12976] Clients allowed for selection [1]
+[INFO][12:24:40]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:24:40]: [Server #12976] Selected clients: [1]
+[INFO][12:24:40]: [Server #12976] Selecting client #1 for training.
+[INFO][12:24:40]: [Server #12976] Sending the current model to client #1 (simulated).
+[INFO][12:24:40]: [Server #12976] Sending 3.06 MB of payload data to client #1 (simulated).
+[INFO][12:24:50]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:25:00]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:25:10]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:25:20]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:25:30]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:25:31]: [Server #12976] Received 3.06 MB of payload data from client #2 (simulated).
+aggregate_weights with 1 updates
+Round(14): aggregating client 2 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:25:40]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:25:40]: [Server #12976] Logging report from [Client-2]
+[INFO][12:25:40]: [Server #12976] Updated weights have been received.
+[INFO][12:25:40]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:25:40]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:25:40]: [Server #12976] Average client auroc: 0.89%.
+[INFO][12:25:40]: [Server #12976] Average client accuracy: 44.93%.
+[INFO][12:25:40]: [Server #12976] Average client test loss: 1.46
+[INFO][12:25:40]: [Server #12976] Average client train loss: 1.46
+[INFO][12:25:40]: [Server #12976] Average client precision: 0.50
+[INFO][12:25:40]: [Server #12976] Average client recall: 0.45
+[INFO][12:25:40]: [Server #12976] Global model accuracy: 44.93%
+[INFO][12:25:40]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_14.pth.
+[INFO][12:25:40]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_14.pth.
+[INFO][12:25:40]: 14 aggregations performed in 14 rounds.
+[INFO][12:25:40]:
+[93m[1m[Server #12976] Starting round 15/10.
+[INFO][12:25:40]: !--[Server #12976] Clients still training [1]
+[INFO][12:25:40]: !--[Server #12976] Clients not aggregated []
+[INFO][12:25:40]: !--[Server #12976] Clients allowed for selection [2]
+[INFO][12:25:40]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:25:40]: [Server #12976] Selected clients: [2]
+[INFO][12:25:40]: [Server #12976] Selecting client #2 for training.
+[INFO][12:25:40]: [Server #12976] Sending the current model to client #2 (simulated).
+[INFO][12:25:40]: [Server #12976] Sending 3.06 MB of payload data to client #2 (simulated).
+[INFO][12:25:50]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:26:00]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:26:10]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:26:20]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:26:27]: [Server #12976] Received 3.06 MB of payload data from client #1 (simulated).
+aggregate_weights with 1 updates
+Round(15): aggregating client 1 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:26:30]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:26:30]: [Server #12976] Logging report from [Client-1]
+[INFO][12:26:30]: [Server #12976] Updated weights have been received.
+[INFO][12:26:30]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:26:30]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:26:30]: [Server #12976] Average client auroc: 0.89%.
+[INFO][12:26:30]: [Server #12976] Average client accuracy: 46.62%.
+[INFO][12:26:30]: [Server #12976] Average client test loss: 1.42
+[INFO][12:26:30]: [Server #12976] Average client train loss: 1.39
+[INFO][12:26:30]: [Server #12976] Average client precision: 0.51
+[INFO][12:26:30]: [Server #12976] Average client recall: 0.47
+[INFO][12:26:30]: [Server #12976] Global model accuracy: 46.62%
+[INFO][12:26:30]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_15.pth.
+[INFO][12:26:30]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_15.pth.
+[INFO][12:26:30]: 15 aggregations performed in 15 rounds.
+[INFO][12:26:30]:
+[93m[1m[Server #12976] Starting round 16/10.
+[INFO][12:26:30]: !--[Server #12976] Clients still training [2]
+[INFO][12:26:30]: !--[Server #12976] Clients not aggregated []
+[INFO][12:26:30]: !--[Server #12976] Clients allowed for selection [1]
+[INFO][12:26:30]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:26:30]: [Server #12976] Selected clients: [1]
+[INFO][12:26:30]: [Server #12976] Selecting client #1 for training.
+[INFO][12:26:30]: [Server #12976] Sending the current model to client #1 (simulated).
+[INFO][12:26:30]: [Server #12976] Sending 3.06 MB of payload data to client #1 (simulated).
+[INFO][12:26:40]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:26:50]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:27:00]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:27:10]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:27:20]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:27:24]: [Server #12976] Received 3.06 MB of payload data from client #2 (simulated).
+aggregate_weights with 1 updates
+Round(16): aggregating client 2 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:27:30]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:27:30]: [Server #12976] Logging report from [Client-2]
+[INFO][12:27:30]: [Server #12976] Updated weights have been received.
+[INFO][12:27:30]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:27:30]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:27:30]: [Server #12976] Average client auroc: 0.89%.
+[INFO][12:27:30]: [Server #12976] Average client accuracy: 45.91%.
+[INFO][12:27:30]: [Server #12976] Average client test loss: 1.44
+[INFO][12:27:30]: [Server #12976] Average client train loss: 1.42
+[INFO][12:27:30]: [Server #12976] Average client precision: 0.49
+[INFO][12:27:30]: [Server #12976] Average client recall: 0.46
+[INFO][12:27:30]: [Server #12976] Global model accuracy: 45.91%
+[INFO][12:27:30]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_16.pth.
+[INFO][12:27:30]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_16.pth.
+[INFO][12:27:30]: 16 aggregations performed in 16 rounds.
+[INFO][12:27:30]:
+[93m[1m[Server #12976] Starting round 17/10.
+[INFO][12:27:30]: !--[Server #12976] Clients still training [1]
+[INFO][12:27:30]: !--[Server #12976] Clients not aggregated []
+[INFO][12:27:30]: !--[Server #12976] Clients allowed for selection [2]
+[INFO][12:27:30]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:27:30]: [Server #12976] Selected clients: [2]
+[INFO][12:27:30]: [Server #12976] Selecting client #2 for training.
+[INFO][12:27:30]: [Server #12976] Sending the current model to client #2 (simulated).
+[INFO][12:27:30]: [Server #12976] Sending 3.06 MB of payload data to client #2 (simulated).
+[INFO][12:27:40]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:27:50]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:28:00]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:28:10]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:28:17]: [Server #12976] Received 3.06 MB of payload data from client #1 (simulated).
+aggregate_weights with 1 updates
+Round(17): aggregating client 1 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:28:20]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:28:20]: [Server #12976] Logging report from [Client-1]
+[INFO][12:28:20]: [Server #12976] Updated weights have been received.
+[INFO][12:28:20]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:28:20]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:28:20]: [Server #12976] Average client auroc: 0.90%.
+[INFO][12:28:20]: [Server #12976] Average client accuracy: 49.50%.
+[INFO][12:28:20]: [Server #12976] Average client test loss: 1.37
+[INFO][12:28:20]: [Server #12976] Average client train loss: 1.34
+[INFO][12:28:20]: [Server #12976] Average client precision: 0.53
+[INFO][12:28:20]: [Server #12976] Average client recall: 0.49
+[INFO][12:28:20]: [Server #12976] Global model accuracy: 49.50%
+[INFO][12:28:20]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_17.pth.
+[INFO][12:28:20]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_17.pth.
+[INFO][12:28:20]: 17 aggregations performed in 17 rounds.
+[INFO][12:28:20]:
+[93m[1m[Server #12976] Starting round 18/10.
+[INFO][12:28:20]: !--[Server #12976] Clients still training [2]
+[INFO][12:28:20]: !--[Server #12976] Clients not aggregated []
+[INFO][12:28:20]: !--[Server #12976] Clients allowed for selection [1]
+[INFO][12:28:20]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:28:20]: [Server #12976] Selected clients: [1]
+[INFO][12:28:20]: [Server #12976] Selecting client #1 for training.
+[INFO][12:28:20]: [Server #12976] Sending the current model to client #1 (simulated).
+[INFO][12:28:20]: [Server #12976] Sending 3.06 MB of payload data to client #1 (simulated).
+[INFO][12:28:30]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:28:40]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:28:50]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:29:00]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:29:10]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:29:15]: [Server #12976] Received 3.06 MB of payload data from client #2 (simulated).
+aggregate_weights with 1 updates
+Round(18): aggregating client 2 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:29:20]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:29:20]: [Server #12976] Logging report from [Client-2]
+[INFO][12:29:20]: [Server #12976] Updated weights have been received.
+[INFO][12:29:20]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:29:20]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:29:20]: [Server #12976] Average client auroc: 0.90%.
+[INFO][12:29:20]: [Server #12976] Average client accuracy: 47.46%.
+[INFO][12:29:20]: [Server #12976] Average client test loss: 1.40
+[INFO][12:29:20]: [Server #12976] Average client train loss: 1.37
+[INFO][12:29:20]: [Server #12976] Average client precision: 0.52
+[INFO][12:29:20]: [Server #12976] Average client recall: 0.47
+[INFO][12:29:20]: [Server #12976] Global model accuracy: 47.46%
+[INFO][12:29:20]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_18.pth.
+[INFO][12:29:20]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_18.pth.
+[INFO][12:29:20]: 18 aggregations performed in 18 rounds.
+[INFO][12:29:20]:
+[93m[1m[Server #12976] Starting round 19/10.
+[INFO][12:29:20]: !--[Server #12976] Clients still training [1]
+[INFO][12:29:20]: !--[Server #12976] Clients not aggregated []
+[INFO][12:29:20]: !--[Server #12976] Clients allowed for selection [2]
+[INFO][12:29:20]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:29:20]: [Server #12976] Selected clients: [2]
+[INFO][12:29:20]: [Server #12976] Selecting client #2 for training.
+[INFO][12:29:20]: [Server #12976] Sending the current model to client #2 (simulated).
+[INFO][12:29:20]: [Server #12976] Sending 3.06 MB of payload data to client #2 (simulated).
+[INFO][12:29:30]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:29:40]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:29:50]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:30:01]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:30:11]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:30:12]: [Server #12976] Received 3.06 MB of payload data from client #1 (simulated).
+aggregate_weights with 1 updates
+Round(19): aggregating client 1 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:30:21]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:30:21]: [Server #12976] Logging report from [Client-1]
+[INFO][12:30:21]: [Server #12976] Updated weights have been received.
+[INFO][12:30:21]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:30:21]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:30:21]: [Server #12976] Average client auroc: 0.90%.
+[INFO][12:30:21]: [Server #12976] Average client accuracy: 49.76%.
+[INFO][12:30:21]: [Server #12976] Average client test loss: 1.34
+[INFO][12:30:21]: [Server #12976] Average client train loss: 1.29
+[INFO][12:30:21]: [Server #12976] Average client precision: 0.55
+[INFO][12:30:21]: [Server #12976] Average client recall: 0.50
+[INFO][12:30:21]: [Server #12976] Global model accuracy: 49.76%
+[INFO][12:30:21]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_19.pth.
+[INFO][12:30:21]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_19.pth.
+[INFO][12:30:21]: 19 aggregations performed in 19 rounds.
+[INFO][12:30:21]:
+[93m[1m[Server #12976] Starting round 20/10.
+[INFO][12:30:21]: !--[Server #12976] Clients still training [2]
+[INFO][12:30:21]: !--[Server #12976] Clients not aggregated []
+[INFO][12:30:21]: !--[Server #12976] Clients allowed for selection [1]
+[INFO][12:30:21]: !--[Server #12976] Clients count of 1 must be smaller or equal to clients pool of 1
+[INFO][12:30:21]: [Server #12976] Selected clients: [1]
+[INFO][12:30:21]: [Server #12976] Selecting client #1 for training.
+[INFO][12:30:21]: [Server #12976] Sending the current model to client #1 (simulated).
+[INFO][12:30:21]: [Server #12976] Sending 3.06 MB of payload data to client #1 (simulated).
+[INFO][12:30:31]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:30:41]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:30:51]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:31:01]: [Server #12976] No sufficient number of client reports have been received. Nothing to process.
+[INFO][12:31:07]: [Server #12976] Received 3.06 MB of payload data from client #2 (simulated).
+aggregate_weights with 1 updates
+Round(20): aggregating client 2 with staleness 1 resulting staleness function returning 0.45
+[INFO][12:31:11]: [Server #12976] 1 client report(s) received in asynchronous mode. Processing.
+[INFO][12:31:11]: [Server #12976] Logging report from [Client-2]
+[INFO][12:31:11]: [Server #12976] Updated weights have been received.
+[INFO][12:31:11]: [Server #12976] Aggregating model weights directly rather than weight deltas.
+[INFO][12:31:11]: [Server #12976] Finished aggregating updated weights.
+[INFO][12:31:11]: [Server #12976] Average client auroc: 0.90%.
+[INFO][12:31:11]: [Server #12976] Average client accuracy: 49.84%.
+[INFO][12:31:11]: [Server #12976] Average client test loss: 1.34
+[INFO][12:31:11]: [Server #12976] Average client train loss: 1.31
+[INFO][12:31:11]: [Server #12976] Average client precision: 0.54
+[INFO][12:31:11]: [Server #12976] Average client recall: 0.50
+[INFO][12:31:11]: [Server #12976] Global model accuracy: 49.84%
+[INFO][12:31:11]: [Server #12976] Saving the checkpoint to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_20.pth.
+[INFO][12:31:11]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_20.pth.
+[INFO][12:31:11]: 20 aggregations performed in 20 rounds.
+[INFO][12:31:11]: Target number of aggregations reached.
+[INFO][12:31:11]: Closing the connection to client #2.
+[INFO][12:31:11]: Closing the connection to client #1.
+[INFO][12:31:11]: [Server #12976] performing and logging final validation of all checkpoints from round 1 to 20
+[INFO][12:31:11]: [Server #12976] performing and logging final test of final model
+[INFO][12:31:11]: [Server #12976] loading best model from round(20) with metric(0.498416543006897)
+[INFO][12:31:11]: [Server #12976] Loading a model from ./models/fedasync/cifar10\cifar10_low-poly/checkpoint_lowgpuCifar10_20.pth.
+[34m[1mwandb[39m[22m: [33mWARNING[39m wandb uses only 10000 data points to create the plots.
+[INFO][12:31:59]: [Server #12976] Training concluded.
+[INFO][12:31:59]: [Server #12976] Model saved to ./models/fedasync/cifar10\cifar10_low-poly/lowgpuCifar10.pth.
+[INFO][12:31:59]: [Server #12976] Closing the server.

@@ -12,6 +12,7 @@ https://opt-ml.org/papers/2020/paper_28.pdf
 from plato.clients import simple
 import fedasync_algorithm
 import fedasync_server
+import os
 
 def main():
     """A Plato federated learning training session using FedAsync."""

@@ -1,0 +1,147 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.9
+    framework: huggingface
+    huggingface_version: 4.26.0
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.8.16
+    start_time: 1674817511.93186
+    t:
+      1:
+      - 1
+      - 2
+      - 3
+      - 5
+      - 11
+      - 41
+      - 49
+      - 51
+      - 53
+      - 55
+      - 63
+      2:
+      - 1
+      - 2
+      - 3
+      - 5
+      - 11
+      - 41
+      - 49
+      - 51
+      - 53
+      - 55
+      - 63
+      3:
+      - 2
+      - 17
+      - 23
+      - 37
+      4: 3.8.16
+      5: 0.13.9
+      6: 4.26.0
+      8:
+      - 3
+      - 5
+    visualize:
+      final/conf:
+        panel_config:
+          fieldSettings:
+            Actual: Actual
+            Predicted: Predicted
+            nPredictions: nPredictions
+          panelDefId: wandb/confusion_matrix/v1
+          stringSettings:
+            title: ''
+          transform:
+            name: tableWithLeafColNames
+          userQuery:
+            queryFields:
+            - args:
+              - name: runSets
+                value: ${runSets}
+              fields:
+              - fields: []
+                name: id
+              - fields: []
+                name: name
+              - fields: []
+                name: _defaultColorIndex
+              - args:
+                - name: tableKey
+                  value: final/conf_table
+                fields: []
+                name: summaryTable
+              name: runSets
+        panel_type: Vega2
+      final/pr:
+        panel_config:
+          fieldSettings:
+            class: class
+            x: recall
+            y: precision
+          panelDefId: wandb/area-under-curve/v0
+          stringSettings:
+            title: Precision v. Recall
+          transform:
+            name: tableWithLeafColNames
+          userQuery:
+            queryFields:
+            - args:
+              - name: runSets
+                value: ${runSets}
+              fields:
+              - fields: []
+                name: id
+              - fields: []
+                name: name
+              - fields: []
+                name: _defaultColorIndex
+              - args:
+                - name: tableKey
+                  value: final/pr_table
+                fields: []
+                name: summaryTable
+              name: runSets
+        panel_type: Vega2
+      final/roc:
+        panel_config:
+          fieldSettings:
+            class: class
+            x: fpr
+            y: tpr
+          panelDefId: wandb/area-under-curve/v0
+          stringSettings:
+            title: ROC
+            x-axis-title: False positive rate
+            y-axis-title: True positive rate
+          transform:
+            name: tableWithLeafColNames
+          userQuery:
+            queryFields:
+            - args:
+              - name: runSets
+                value: ${runSets}
+              fields:
+              - fields: []
+                name: id
+              - fields: []
+                name: name
+              - fields: []
+                name: _defaultColorIndex
+              - args:
+                - name: tableKey
+                  value: final/roc_table
+                fields: []
+                name: summaryTable
+              name: runSets
+        panel_type: Vega2
+    viz:
+      confusion_matrix:
+        historyFieldSettings:
+          key: confusion_matrix
+          x-axis: _step
+        id: wandb/confusion_matrix/v1

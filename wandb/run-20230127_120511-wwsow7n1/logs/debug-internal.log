@@ -1,0 +1,390 @@
+2023-01-27 12:05:11,924 INFO    StreamThr :6348 [internal.py:wandb_internal():87] W&B internal server running at pid: 6348, started at: 2023-01-27 12:05:11.923158
+2023-01-27 12:05:11,926 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status
+2023-01-27 12:05:11,943 INFO    WriterThread:6348 [datastore.py:open_for_write():85] open: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\run-wwsow7n1.wandb
+2023-01-27 12:05:11,943 DEBUG   SenderThread:6348 [sender.py:send():334] send: header
+2023-01-27 12:05:12,034 DEBUG   SenderThread:6348 [sender.py:send():334] send: run
+2023-01-27 12:05:12,494 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: check_version
+2023-01-27 12:05:12,497 INFO    SenderThread:6348 [dir_watcher.py:__init__():216] watching files in: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files
+2023-01-27 12:05:12,497 INFO    SenderThread:6348 [sender.py:_start_run_threads():1065] run started: wwsow7n1 with start time 1674817511.93186
+2023-01-27 12:05:12,497 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:05:12,498 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:05:12,499 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: check_version
+2023-01-27 12:05:12,685 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: run_start
+2023-01-27 12:05:12,715 DEBUG   HandlerThread:6348 [system_info.py:__init__():31] System info init
+2023-01-27 12:05:12,716 DEBUG   HandlerThread:6348 [system_info.py:__init__():46] System info init done
+2023-01-27 12:05:12,716 INFO    HandlerThread:6348 [system_monitor.py:start():151] Starting system monitor
+2023-01-27 12:05:12,716 INFO    SystemMonitor:6348 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-01-27 12:05:12,716 INFO    HandlerThread:6348 [system_monitor.py:probe():172] Collecting system info
+2023-01-27 12:05:12,722 INFO    SystemMonitor:6348 [interfaces.py:start():168] Started cpu
+2023-01-27 12:05:12,727 DEBUG   HandlerThread:6348 [system_info.py:probe():195] Probing system
+2023-01-27 12:05:12,727 INFO    SystemMonitor:6348 [interfaces.py:start():168] Started disk
+2023-01-27 12:05:12,739 INFO    SystemMonitor:6348 [interfaces.py:start():168] Started memory
+2023-01-27 12:05:12,752 INFO    SystemMonitor:6348 [interfaces.py:start():168] Started network
+2023-01-27 12:05:12,767 DEBUG   HandlerThread:6348 [system_info.py:_probe_git():180] Probing git
+2023-01-27 12:05:12,962 DEBUG   HandlerThread:6348 [system_info.py:_probe_git():188] Probing git done
+2023-01-27 12:05:12,962 DEBUG   HandlerThread:6348 [system_info.py:probe():241] Probing system done
+2023-01-27 12:05:12,962 DEBUG   HandlerThread:6348 [system_monitor.py:probe():181] {'os': 'Windows-10-10.0.19044-SP0', 'python': '3.8.16', 'heartbeatAt': '2023-01-27T11:05:12.727797', 'startedAt': '2023-01-27T11:05:11.893076', 'docker': None, 'cuda': None, 'args': ('-c', 'C:\\Users\\au475271\\Desktop\\fedasync-with-fairness\\configs\\cifar10\\low-poly.yml'), 'state': 'running', 'program': 'c:\\Users\\au475271\\Desktop\\fedasync-with-fairness\\src\\main.py', 'codePath': 'src\\main.py', 'git': {'remote': 'https://github.com/thecml/fedasync-with-fairness.git', 'commit': '09602fc5374332b9ba76b0ef50110a6f044039fe'}, 'email': 'cl@ece.au.dk', 'root': 'C:/Users/au475271/Desktop/fedasync-with-fairness', 'host': 'D43188', 'username': 'au475271', 'executable': 'C:\\Users\\au475271\\Miniconda3\\envs\\py38-fedasync\\python.exe', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 1803.0, 'min': 0.0, 'max': 2304.0}, 'cpu_freq_per_core': [{'current': 1803.0, 'min': 0.0, 'max': 2304.0}], 'disk': {'total': 475.262638092041, 'used': 189.03233337402344}, 'memory': {'total': 15.778663635253906}}
+2023-01-27 12:05:12,962 INFO    HandlerThread:6348 [system_monitor.py:probe():182] Finished collecting system info
+2023-01-27 12:05:12,962 INFO    HandlerThread:6348 [system_monitor.py:probe():185] Publishing system info
+2023-01-27 12:05:12,963 DEBUG   HandlerThread:6348 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-01-27 12:05:12,964 DEBUG   HandlerThread:6348 [system_info.py:_save_pip():67] Saving pip packages done
+2023-01-27 12:05:12,964 DEBUG   HandlerThread:6348 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-01-27 12:05:13,508 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\conda-environment.yaml
+2023-01-27 12:05:13,508 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\wandb-summary.json
+2023-01-27 12:05:13,508 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\requirements.txt
+2023-01-27 12:05:23,578 DEBUG   HandlerThread:6348 [system_info.py:_save_conda():86] Saving conda packages done
+2023-01-27 12:05:23,579 INFO    HandlerThread:6348 [system_monitor.py:probe():187] Finished publishing system info
+2023-01-27 12:05:23,584 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\conda-environment.yaml
+2023-01-27 12:05:23,584 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\wandb-metadata.json
+2023-01-27 12:05:23,634 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:05:23,634 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:05:23,635 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:05:23,635 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:05:23,635 DEBUG   SenderThread:6348 [sender.py:send():334] send: files
+2023-01-27 12:05:23,636 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-metadata.json with policy now
+2023-01-27 12:05:23,647 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: stop_status
+2023-01-27 12:05:23,648 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: stop_status
+2023-01-27 12:05:23,861 DEBUG   SenderThread:6348 [sender.py:send():334] send: telemetry
+2023-01-27 12:05:23,861 DEBUG   SenderThread:6348 [sender.py:send():334] send: telemetry
+2023-01-27 12:05:23,862 DEBUG   SenderThread:6348 [sender.py:send():334] send: run
+2023-01-27 12:05:24,130 INFO    SenderThread:6348 [sender.py:send_run():942] updated run: wwsow7n1
+2023-01-27 12:05:24,362 INFO    Thread-22 :6348 [upload_job.py:push():143] Uploaded file C:\Users\au475271\AppData\Local\Temp\tmp4njbyggkwandb\rh1vxirx-wandb-metadata.json
+2023-01-27 12:05:24,586 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\config.yaml
+2023-01-27 12:05:24,588 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:05:26,604 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:05:28,271 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:05:28,619 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:05:33,318 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:05:34,676 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:05:38,660 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:05:38,660 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:05:38,706 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:05:43,712 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:05:44,697 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:05:44,769 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:05:45,780 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\config.yaml
+2023-01-27 12:05:48,757 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:05:49,990 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:05:53,788 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:05:54,858 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:05:55,726 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:05:58,836 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:00,767 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:06:03,903 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:04,990 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:06:06,750 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:06:08,960 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:11,804 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:06:12,771 DEBUG   SystemMonitor:6348 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-01-27 12:06:12,773 DEBUG   SenderThread:6348 [sender.py:send():334] send: stats
+2023-01-27 12:06:14,028 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:15,104 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:06:17,755 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:06:19,073 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:22,804 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:06:24,160 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:25,258 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:06:28,769 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:06:29,186 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:34,217 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:34,750 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:06:35,393 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:06:39,257 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:39,788 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:06:42,786 DEBUG   SenderThread:6348 [sender.py:send():334] send: stats
+2023-01-27 12:06:44,301 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:44,599 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:06:45,782 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:06:48,670 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:06:49,365 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:51,159 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:06:52,133 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,133 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,133 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,134 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,134 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,134 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,134 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,135 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,135 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,135 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,136 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,136 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,136 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,136 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,136 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,137 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,137 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,137 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,138 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,138 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,138 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,139 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,139 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,139 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,139 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,139 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,140 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,140 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,140 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,140 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:06:52,710 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:06:54,408 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:06:56,235 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:06:59,455 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:07:01,277 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:07:04,500 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:07:06,321 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:07:09,530 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:07:11,367 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:07:12,788 DEBUG   SenderThread:6348 [sender.py:send():334] send: stats
+2023-01-27 12:07:14,584 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:07:16,817 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:07:19,623 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:07:21,851 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:07:24,644 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:07:26,910 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:07:29,693 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:07:30,590 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:30,594 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:30,595 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:30,595 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:30,596 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:30,597 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:30,597 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:30,601 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:30,601 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:30,603 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:30,603 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:30,603 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:30,604 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:30,604 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:30,605 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:30,606 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:30,606 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:30,606 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:30,607 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:30,607 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:30,607 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:30,608 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:30,608 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:30,609 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:30,609 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:30,610 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:30,610 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:30,611 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:31,299 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\wandb-summary.json
+2023-01-27 12:07:31,388 DEBUG   SenderThread:6348 [sender.py:send():334] send: config
+2023-01-27 12:07:32,057 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: log_artifact
+2023-01-27 12:07:32,059 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: log_artifact
+2023-01-27 12:07:32,304 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table\final\roc_table_8_f0da01bc47fe19385403.table.json
+2023-01-27 12:07:32,304 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table\final
+2023-01-27 12:07:32,304 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table
+2023-01-27 12:07:32,305 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media
+2023-01-27 12:07:32,679 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:32,982 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: log_artifact
+2023-01-27 12:07:33,009 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:33,330 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:07:33,330 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table\final\conf_table_9_7c99fcb2625f98f8dc6e.table.json
+2023-01-27 12:07:33,331 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table\final
+2023-01-27 12:07:33,999 INFO    Thread-24 :6348 [upload_job.py:push():101] Uploaded file C:\Users\au475271\AppData\Local\wandb\wandb\artifacts\staging\tmpourmnfqn
+2023-01-27 12:07:34,766 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:07:35,146 INFO    SenderThread:6348 [sender.py:send_request_log_artifact():1379] logged artifact run-wwsow7n1-finalroc_table - {'id': 'QXJ0aWZhY3Q6MzQzODI3NTI0', 'digest': 'b5fd77d15df706a5a2b45d3ab4655758', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjUwOTYxOTY4', 'latestArtifact': None}, 'version': 'latest'}
+2023-01-27 12:07:35,147 DEBUG   SenderThread:6348 [sender.py:send():334] send: files
+2023-01-27 12:07:35,147 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file media\table\final/roc_table_8_f0da01bc47fe19385403.table.json with policy now
+2023-01-27 12:07:35,148 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:07:35,150 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:35,150 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:35,152 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:35,153 DEBUG   SenderThread:6348 [sender.py:send():334] send: config
+2023-01-27 12:07:35,153 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: log_artifact
+2023-01-27 12:07:35,373 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\wandb-summary.json
+2023-01-27 12:07:36,075 INFO    Thread-25 :6348 [upload_job.py:push():143] Uploaded file C:\Users\au475271\AppData\Local\Temp\tmp4njbyggkwandb\s51634al-media/table/final/roc_table_8_f0da01bc47fe19385403.table.json
+2023-01-27 12:07:36,531 INFO    Thread-27 :6348 [upload_job.py:push():101] Uploaded file C:\Users\au475271\AppData\Local\wandb\wandb\artifacts\staging\tmpydzy33vv
+2023-01-27 12:07:36,822 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: log_artifact
+2023-01-27 12:07:36,839 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:36,841 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:37,221 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: log_artifact
+2023-01-27 12:07:37,284 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:37,286 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:37,287 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: partial_history
+2023-01-27 12:07:37,400 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table\confusion_matrix_10_562163d57e0a5a9ff414.table.json
+2023-01-27 12:07:37,400 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table\final\pr_table_12_60ba7c053a5d19fb2300.table.json
+2023-01-27 12:07:37,400 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table\final
+2023-01-27 12:07:37,400 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table
+2023-01-27 12:07:37,623 INFO    SenderThread:6348 [sender.py:send_request_log_artifact():1379] logged artifact run-wwsow7n1-finalconf_table - {'id': 'QXJ0aWZhY3Q6MzQzODI3NTQy', 'digest': '48307cf7fadc7bb278566846d4191ffe', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjUwOTYxOTcw', 'latestArtifact': None}, 'version': 'latest'}
+2023-01-27 12:07:37,624 DEBUG   SenderThread:6348 [sender.py:send():334] send: files
+2023-01-27 12:07:37,624 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file media\table\final/conf_table_9_7c99fcb2625f98f8dc6e.table.json with policy now
+2023-01-27 12:07:37,627 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:37,628 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:37,633 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:37,634 DEBUG   SenderThread:6348 [sender.py:send():334] send: config
+2023-01-27 12:07:37,635 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: log_artifact
+2023-01-27 12:07:38,304 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: poll_exit
+2023-01-27 12:07:38,418 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\wandb-summary.json
+2023-01-27 12:07:38,492 INFO    Thread-28 :6348 [upload_job.py:push():143] Uploaded file C:\Users\au475271\AppData\Local\Temp\tmp4njbyggkwandb\cin62c9l-media/table/final/conf_table_9_7c99fcb2625f98f8dc6e.table.json
+2023-01-27 12:07:39,387 INFO    Thread-30 :6348 [upload_job.py:push():101] Uploaded file C:\Users\au475271\AppData\Local\wandb\wandb\artifacts\staging\tmp_8bcovrt
+2023-01-27 12:07:40,474 INFO    SenderThread:6348 [sender.py:send_request_log_artifact():1379] logged artifact run-wwsow7n1-confusion_matrix - {'id': 'QXJ0aWZhY3Q6MzQzODI3NTU3', 'digest': 'ccae4491ad1913f0854e81adfec5b452', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjUwOTYxOTc1', 'latestArtifact': None}, 'version': 'latest'}
+2023-01-27 12:07:40,475 DEBUG   SenderThread:6348 [sender.py:send():334] send: files
+2023-01-27 12:07:40,476 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file media\table\confusion_matrix_10_562163d57e0a5a9ff414.table.json with policy now
+2023-01-27 12:07:40,477 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:07:40,481 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:40,482 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:40,489 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:40,490 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:40,491 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:40,496 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:40,497 DEBUG   SenderThread:6348 [sender.py:send():334] send: config
+2023-01-27 12:07:40,497 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: log_artifact
+2023-01-27 12:07:41,152 INFO    Thread-31 :6348 [upload_job.py:push():143] Uploaded file C:\Users\au475271\AppData\Local\Temp\tmp4njbyggkwandb\bjz96djc-media/table/confusion_matrix_10_562163d57e0a5a9ff414.table.json
+2023-01-27 12:07:41,450 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\wandb-summary.json
+2023-01-27 12:07:42,002 INFO    Thread-33 :6348 [upload_job.py:push():101] Uploaded file C:\Users\au475271\AppData\Local\wandb\wandb\artifacts\staging\tmpr_6g_si4
+2023-01-27 12:07:42,982 INFO    SenderThread:6348 [sender.py:send_request_log_artifact():1379] logged artifact run-wwsow7n1-finalpr_table - {'id': 'QXJ0aWZhY3Q6MzQzODI3NTgy', 'digest': '54df72fe6ab50f884a3ddf8b4e7a5904', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjUwOTYxOTgw', 'latestArtifact': None}, 'version': 'latest'}
+2023-01-27 12:07:42,983 DEBUG   SenderThread:6348 [sender.py:send():334] send: files
+2023-01-27 12:07:42,983 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file media\table\final/pr_table_12_60ba7c053a5d19fb2300.table.json with policy now
+2023-01-27 12:07:42,986 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:42,987 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:42,992 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:42,993 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:42,994 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:42,998 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:42,999 DEBUG   SenderThread:6348 [sender.py:send():334] send: history
+2023-01-27 12:07:42,999 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: summary_record
+2023-01-27 12:07:43,002 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:43,003 DEBUG   SenderThread:6348 [sender.py:send():334] send: telemetry
+2023-01-27 12:07:43,003 DEBUG   SenderThread:6348 [sender.py:send():334] send: exit
+2023-01-27 12:07:43,003 INFO    SenderThread:6348 [sender.py:send_exit():557] handling exit code: 0
+2023-01-27 12:07:43,003 INFO    SenderThread:6348 [sender.py:send_exit():559] handling runtime: 144
+2023-01-27 12:07:43,009 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:43,010 INFO    SenderThread:6348 [sender.py:send_exit():565] send defer
+2023-01-27 12:07:43,010 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: poll_exit
+2023-01-27 12:07:43,011 DEBUG   SenderThread:6348 [sender.py:send():334] send: stats
+2023-01-27 12:07:43,011 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:43,012 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 0
+2023-01-27 12:07:43,012 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:43,012 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 0
+2023-01-27 12:07:43,013 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 1
+2023-01-27 12:07:43,013 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:43,013 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 1
+2023-01-27 12:07:43,013 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:43,014 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 1
+2023-01-27 12:07:43,014 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 2
+2023-01-27 12:07:43,014 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:43,014 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 2
+2023-01-27 12:07:43,014 INFO    HandlerThread:6348 [system_monitor.py:finish():161] Stopping system monitor
+2023-01-27 12:07:43,016 DEBUG   SystemMonitor:6348 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2023-01-27 12:07:43,016 DEBUG   SystemMonitor:6348 [system_monitor.py:_start():141] Publishing last batch of metrics
+2023-01-27 12:07:43,017 INFO    HandlerThread:6348 [interfaces.py:finish():175] Joined cpu
+2023-01-27 12:07:43,017 INFO    HandlerThread:6348 [interfaces.py:finish():175] Joined disk
+2023-01-27 12:07:43,017 INFO    HandlerThread:6348 [interfaces.py:finish():175] Joined memory
+2023-01-27 12:07:43,017 INFO    HandlerThread:6348 [interfaces.py:finish():175] Joined network
+2023-01-27 12:07:43,018 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:43,018 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 2
+2023-01-27 12:07:43,018 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 3
+2023-01-27 12:07:43,018 DEBUG   SenderThread:6348 [sender.py:send():334] send: stats
+2023-01-27 12:07:43,018 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:43,018 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 3
+2023-01-27 12:07:43,018 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:43,019 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 3
+2023-01-27 12:07:43,019 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 4
+2023-01-27 12:07:43,019 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:43,019 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 4
+2023-01-27 12:07:43,019 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:43,019 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 4
+2023-01-27 12:07:43,019 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 5
+2023-01-27 12:07:43,019 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:43,019 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 5
+2023-01-27 12:07:43,020 DEBUG   SenderThread:6348 [sender.py:send():334] send: summary
+2023-01-27 12:07:43,021 INFO    SenderThread:6348 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-01-27 12:07:43,022 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:43,022 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 5
+2023-01-27 12:07:43,022 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 6
+2023-01-27 12:07:43,022 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:43,022 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 6
+2023-01-27 12:07:43,022 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:43,023 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 6
+2023-01-27 12:07:43,026 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:07:43,277 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 7
+2023-01-27 12:07:43,281 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:43,281 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 7
+2023-01-27 12:07:43,282 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:43,282 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 7
+2023-01-27 12:07:43,337 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:07:43,482 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\wandb-summary.json
+2023-01-27 12:07:43,483 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\config.yaml
+2023-01-27 12:07:43,602 INFO    Thread-34 :6348 [upload_job.py:push():143] Uploaded file C:\Users\au475271\AppData\Local\Temp\tmp4njbyggkwandb\mbrujrtk-media/table/final/pr_table_12_60ba7c053a5d19fb2300.table.json
+2023-01-27 12:07:45,371 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 8
+2023-01-27 12:07:45,371 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:45,372 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 8
+2023-01-27 12:07:45,372 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:45,372 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 8
+2023-01-27 12:07:45,389 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 9
+2023-01-27 12:07:45,389 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:45,389 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 9
+2023-01-27 12:07:45,390 DEBUG   SenderThread:6348 [sender.py:send():334] send: artifact
+2023-01-27 12:07:45,516 INFO    Thread-17 :6348 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:07:46,789 INFO    Thread-36 :6348 [upload_job.py:push():101] Uploaded file C:\Users\au475271\AppData\Local\wandb\wandb\artifacts\staging\tmpc7sfslom
+2023-01-27 12:07:46,797 INFO    Thread-37 :6348 [upload_job.py:push():101] Uploaded file C:\Users\au475271\AppData\Local\wandb\wandb\artifacts\staging\tmpwd6mbcso
+2023-01-27 12:07:48,279 INFO    SenderThread:6348 [sender.py:send_artifact():1415] sent artifact job-https___github.com_thecml_fedasync-with-fairness.git_src_main.py - {'id': 'QXJ0aWZhY3Q6MzQzODI3NjA5', 'digest': '34e35f479cd8bfc2fd4ced3f0dff6d1a', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjUwOTYxOTg0', 'latestArtifact': None}, 'version': 'latest'}
+2023-01-27 12:07:48,279 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:48,280 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: status_report
+2023-01-27 12:07:48,280 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 9
+2023-01-27 12:07:48,281 INFO    SenderThread:6348 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-01-27 12:07:48,391 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: keepalive
+2023-01-27 12:07:48,539 INFO    SenderThread:6348 [dir_watcher.py:finish():392] scan: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files
+2023-01-27 12:07:48,539 INFO    SenderThread:6348 [dir_watcher.py:finish():406] scan save: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\conda-environment.yaml conda-environment.yaml
+2023-01-27 12:07:48,540 INFO    SenderThread:6348 [dir_watcher.py:finish():406] scan save: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\config.yaml config.yaml
+2023-01-27 12:07:48,547 INFO    SenderThread:6348 [dir_watcher.py:finish():406] scan save: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log output.log
+2023-01-27 12:07:48,547 INFO    SenderThread:6348 [dir_watcher.py:finish():406] scan save: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\requirements.txt requirements.txt
+2023-01-27 12:07:48,559 INFO    SenderThread:6348 [dir_watcher.py:finish():406] scan save: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\wandb-metadata.json wandb-metadata.json
+2023-01-27 12:07:48,560 INFO    SenderThread:6348 [dir_watcher.py:finish():406] scan save: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\wandb-summary.json wandb-summary.json
+2023-01-27 12:07:48,574 INFO    SenderThread:6348 [dir_watcher.py:finish():406] scan save: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table\confusion_matrix_10_562163d57e0a5a9ff414.table.json media\table\confusion_matrix_10_562163d57e0a5a9ff414.table.json
+2023-01-27 12:07:48,576 INFO    SenderThread:6348 [dir_watcher.py:finish():406] scan save: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table\final\conf_table_9_7c99fcb2625f98f8dc6e.table.json media\table\final\conf_table_9_7c99fcb2625f98f8dc6e.table.json
+2023-01-27 12:07:48,576 INFO    SenderThread:6348 [dir_watcher.py:finish():406] scan save: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table\final\pr_table_12_60ba7c053a5d19fb2300.table.json media\table\final\pr_table_12_60ba7c053a5d19fb2300.table.json
+2023-01-27 12:07:48,576 INFO    SenderThread:6348 [dir_watcher.py:finish():406] scan save: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\media\table\final\roc_table_8_f0da01bc47fe19385403.table.json media\table\final\roc_table_8_f0da01bc47fe19385403.table.json
+2023-01-27 12:07:48,576 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 10
+2023-01-27 12:07:48,577 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:48,577 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 10
+2023-01-27 12:07:48,578 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:48,578 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 10
+2023-01-27 12:07:48,578 INFO    SenderThread:6348 [file_pusher.py:finish():160] shutting down file pusher
+2023-01-27 12:07:49,206 INFO    Thread-40 :6348 [upload_job.py:push():143] Uploaded file C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\output.log
+2023-01-27 12:07:49,219 INFO    Thread-39 :6348 [upload_job.py:push():143] Uploaded file C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\config.yaml
+2023-01-27 12:07:49,219 INFO    Thread-41 :6348 [upload_job.py:push():143] Uploaded file C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\requirements.txt
+2023-01-27 12:07:49,227 INFO    Thread-38 :6348 [upload_job.py:push():143] Uploaded file C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\conda-environment.yaml
+2023-01-27 12:07:49,336 INFO    Thread-42 :6348 [upload_job.py:push():143] Uploaded file C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\files\wandb-summary.json
+2023-01-27 12:07:49,548 INFO    Thread-16 :6348 [sender.py:transition_state():585] send defer: 11
+2023-01-27 12:07:49,549 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:49,550 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 11
+2023-01-27 12:07:49,552 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:49,552 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 11
+2023-01-27 12:07:49,553 INFO    SenderThread:6348 [file_pusher.py:join():165] waiting for file pusher
+2023-01-27 12:07:49,553 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 12
+2023-01-27 12:07:49,553 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:49,554 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 12
+2023-01-27 12:07:49,555 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:49,555 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 12
+2023-01-27 12:07:50,099 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 13
+2023-01-27 12:07:50,100 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:50,100 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 13
+2023-01-27 12:07:50,102 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:50,102 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 13
+2023-01-27 12:07:50,102 INFO    SenderThread:6348 [sender.py:transition_state():585] send defer: 14
+2023-01-27 12:07:50,103 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: defer
+2023-01-27 12:07:50,104 INFO    HandlerThread:6348 [handler.py:handle_request_defer():170] handle defer: 14
+2023-01-27 12:07:50,105 DEBUG   SenderThread:6348 [sender.py:send():334] send: final
+2023-01-27 12:07:50,106 DEBUG   SenderThread:6348 [sender.py:send():334] send: footer
+2023-01-27 12:07:50,107 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: defer
+2023-01-27 12:07:50,107 INFO    SenderThread:6348 [sender.py:send_request_defer():581] handle sender defer: 14
+2023-01-27 12:07:50,110 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: poll_exit
+2023-01-27 12:07:50,111 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: server_info
+2023-01-27 12:07:50,112 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: poll_exit
+2023-01-27 12:07:50,112 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: get_summary
+2023-01-27 12:07:50,117 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: sampled_history
+2023-01-27 12:07:50,121 DEBUG   SenderThread:6348 [sender.py:send_request():361] send_request: server_info
+2023-01-27 12:07:50,366 DEBUG   HandlerThread:6348 [handler.py:handle_request():144] handle_request: shutdown
+2023-01-27 12:07:50,366 INFO    HandlerThread:6348 [handler.py:finish():841] shutting down handler
+2023-01-27 12:07:51,122 INFO    WriterThread:6348 [datastore.py:close():299] close: C:\Users\au475271\Desktop\fedasync-with-fairness\wandb\run-20230127_120511-wwsow7n1\run-wwsow7n1.wandb
+2023-01-27 12:07:51,371 INFO    SenderThread:6348 [sender.py:finish():1491] shutting down sender
+2023-01-27 12:07:51,371 INFO    SenderThread:6348 [file_pusher.py:finish():160] shutting down file pusher
+2023-01-27 12:07:51,371 INFO    SenderThread:6348 [file_pusher.py:join():165] waiting for file pusher

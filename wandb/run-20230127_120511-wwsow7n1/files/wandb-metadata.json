@@ -1,0 +1,45 @@
+{
+    "os": "Windows-10-10.0.19044-SP0",
+    "python": "3.8.16",
+    "heartbeatAt": "2023-01-27T11:05:12.727797",
+    "startedAt": "2023-01-27T11:05:11.893076",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "-c",
+        "C:\\Users\\au475271\\Desktop\\fedasync-with-fairness\\configs\\cifar10\\low-poly.yml"
+    ],
+    "state": "running",
+    "program": "c:\\Users\\au475271\\Desktop\\fedasync-with-fairness\\src\\main.py",
+    "codePath": "src\\main.py",
+    "git": {
+        "remote": "https://github.com/thecml/fedasync-with-fairness.git",
+        "commit": "09602fc5374332b9ba76b0ef50110a6f044039fe"
+    },
+    "email": "cl@ece.au.dk",
+    "root": "C:/Users/au475271/Desktop/fedasync-with-fairness",
+    "host": "D43188",
+    "username": "au475271",
+    "executable": "C:\\Users\\au475271\\Miniconda3\\envs\\py38-fedasync\\python.exe",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1803.0,
+        "min": 0.0,
+        "max": 2304.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1803.0,
+            "min": 0.0,
+            "max": 2304.0
+        }
+    ],
+    "disk": {
+        "total": 475.262638092041,
+        "used": 189.03233337402344
+    },
+    "memory": {
+        "total": 15.778663635253906
+    }
+}

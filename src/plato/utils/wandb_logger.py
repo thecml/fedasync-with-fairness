@@ -4,20 +4,18 @@ import logging
 from datetime import datetime
 
 class WANDBLogger:
-    _projectName = Config().data.datasource
+    _projectName = Config().wandb.project_name
     _groupName = Config().params["experiment_name"]
-    _entityName = "master-thesis-22"
+    _entityName = Config().wandb.entity_name
     
     def configure(cls, projectName, groupName, entityName) -> None:
         cls._projectName = projectName
         cls._groupName = groupName
         cls._entityName = entityName
         
-    
     def __init__(self, runName):
         self._initiated: bool = False
         self.runName = self._groupName + "-{}".format(datetime.now().strftime("%d/%m-%H:%M"))
-        
         
     def start(self):
         wandb.init(
