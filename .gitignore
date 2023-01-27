@@ -12,7 +12,6 @@ build/
 develop-eggs/
 dist/
 data/
-models/
 results/
 downloads/
 eggs/
@@ -45,3 +44,8 @@ htmlcov/
 .coverage
 .coverage.*
 .cache
+
+# exclude pytorch models
+/models/**
+!/models/**/
+!/models/**/.gitkeep

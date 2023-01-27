@@ -9,7 +9,7 @@ Objective: Mitigate the drawback that larger clients are punished unfairly in Fe
 Show that training with proposals 1-3 given more stable training in terms of loss than SOTA
 
 Number of clients: 10/100
-Max server aggregations: 1000
+Rounds: 100
 
 Runs:
 
