@@ -20,14 +20,14 @@ clients:
 
     # The simulation distribution
     simulation_distribution:
-         #staleness is simulated from uniform distribution as mentioned in Section 5.2
+        #staleness is simulated from uniform distribution as mentioned in Section 5.2
         distribution: uniform
         low: 0
-        high: 0
+        high: 10 # default: 0
 
     additional_delay:
         low: 0
-        high: 0
+        high: 5 # default: 0
 
     random_seed: 42
 
@@ -41,7 +41,7 @@ server:
     do_final_test: true
 
     # Parameter for FedAsync
-    periodic_interval: 30
+    periodic_interval: 10 # default: 30
     staleness_bound: 99999
     minimum_clients_aggregated: 1
     mixing_hyperparameter: 0.9
@@ -52,8 +52,8 @@ server:
         type: polynomial
         a: 1
 
-    checkpoint_path: models/fedasync/embryos
-    model_path: models/fedasync/embryos
+    checkpoint_path: models/fedasync/cifar10
+    model_path: models/fedasync/cifar10
 
     downlink_bandwidth: 100
     uplink_bandwidth: 100
@@ -62,8 +62,7 @@ server:
 
 data:
     # The training and testing dataset
-    datasource: Embryos
-    size_sorted: true
+    datasource: PartitionedCIFAR10
 
     # IID or non-IID?
     sampler: all_inclusive
@@ -83,27 +82,24 @@ trainer:
     max_concurrency: 10
 
     # The machine learning model
-    model_name: lowgpuEmbryosNew
+    model_name: lowgpuCifar10
 
     # Number of epoches for local training in each communication round
     epochs: 1
-    batch_size: 16
-    optimizer: RMSprop
-
-    loss_criterion: BCEWithLogitsLoss
+    batch_size: 32
+    optimizer: Adam
+    loss_criterion: CrossEntropyLoss
 
 algorithm:
     # Aggregation algorithm
     type: fedavg
 
 parameters:
-    experiment_name: "Proposal_1"
+    experiment_name: "cifar10_proposal_1"
     optimizer:
-        lr: 0.0001
-        momentum: 0.0 # learning rate is fixed as in Appendix C.2
-        weight_decay: 0
+        lr: 0.001
 
 results:
-    result_path: results/fedasync/embryos
+    result_path: results/fedasync/cifar10
     # Write the following parameter(s) into a CSV
-    types: round, elapsed_time, comm_time, round_time, comm_overhead, train_loss, test_loss, auroc, accuracy, precision, recall
+    types: aggregations, round, elapsed_time, comm_time, round_time, comm_overhead, train_loss, test_loss, auroc, accuracy, precision, recall
