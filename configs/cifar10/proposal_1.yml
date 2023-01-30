@@ -99,6 +99,10 @@ parameters:
     optimizer:
         lr: 0.001
 
+wandb:
+    project_name: "fedasync-with-fairness"
+    entity_name: "thecml"
+
 results:
     result_path: results/fedasync/cifar10
     # Write the following parameter(s) into a CSV
