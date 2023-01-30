@@ -23,11 +23,11 @@ clients:
         #staleness is simulated from uniform distribution as mentioned in Section 5.2
         distribution: uniform
         low: 0
-        high: 10 # default: 0
+        high: 0
 
     additional_delay:
         low: 0
-        high: 5 # default: 0
+        high: 0
 
     random_seed: 42
 

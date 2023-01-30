@@ -52,8 +52,8 @@ server:
         type: polynomial
         a: 1
 
-    checkpoint_path: models/fedasync/embryos
-    model_path: models/fedasync/embryos
+    checkpoint_path: models/fedasync/cifar10
+    model_path: models/fedasync/cifar10
 
     downlink_bandwidth: 100
     uplink_bandwidth: 100
@@ -62,8 +62,7 @@ server:
 
 data:
     # The training and testing dataset
-    datasource: Embryos
-    size_sorted: true
+    datasource: PartitionedCIFAR10
 
     # IID or non-IID?
     sampler: all_inclusive
@@ -83,25 +82,22 @@ trainer:
     max_concurrency: 10
 
     # The machine learning model
-    model_name: lowgpuEmbryosNew
+    model_name: lowgpuCifar10
 
     # Number of epoches for local training in each communication round
     epochs: 1
-    batch_size: 16
-    optimizer: RMSprop
-
-    loss_criterion: BCEWithLogitsLoss
+    batch_size: 32
+    optimizer: Adam
+    loss_criterion: CrossEntropyLoss
 
 algorithm:
     # Aggregation algorithm
     type: fedavg
 
 parameters:
-    experiment_name: "Proposal_2"
+    experiment_name: "cifar10_proposal_2"
     optimizer:
-        lr: 0.0001
-        momentum: 0.0 # learning rate is fixed as in Appendix C.2
-        weight_decay: 0
+        lr: 0.001
 
 results:
     result_path: results/fedasync/embryos

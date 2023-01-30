@@ -23,24 +23,25 @@ clients:
         #staleness is simulated from uniform distribution as mentioned in Section 5.2
         distribution: uniform
         low: 0
-        high: 10
+        high: 0
 
     additional_delay:
         low: 0
-        high: 5
+        high: 0
 
     random_seed: 42
 
 server:
     address: 127.0.0.1
-    port: 8998
+    port: 8001
     synchronous: false
     simulate_wall_time: false
     do_test: false
+    do_final_validation: true
     do_final_test: true
 
     # Parameter for FedAsync
-    periodic_interval: 10
+    periodic_interval: 30
     staleness_bound: 99999
     minimum_clients_aggregated: 1
     mixing_hyperparameter: 0.9
