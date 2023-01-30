@@ -56,6 +56,7 @@ class DataSource(base.DataSource):
         self.trainset = None
         self.testset = None
         self.validationset = None
+        self.client_sizes = dict()
 
         curr_dir = os.getcwd()
         root_dir = Path(curr_dir).absolute()
@@ -67,7 +68,14 @@ class DataSource(base.DataSource):
             transforms.ToTensor(),
             transforms.Normalize([0.49139968, 0.48215827, 0.44653124], [0.24703233, 0.24348505, 0.26158768])
         ])
-
+        
+        # Save size of clients
+        n_clients = 10
+        for client_id in range(1, n_clients+1):
+            partition_folder = f"{self._root}/Client-{client_id}"
+            client_data = np.load(f"{partition_folder}/train_samples.npy")
+            self.client_sizes[client_id] = client_data.shape[0]
+            
         # Server is retrieving the data with client_id=0. Therefore giving all data. Even though it only uses test
         if client_id == 0:
             train_samples = []
@@ -77,7 +85,7 @@ class DataSource(base.DataSource):
             test_samples = []
             test_targets = []
 
-            for i in range(10):
+            for i in range(n_clients):
                 partition_folder = f"{self._root}/Client-{i + 1}"
                 train_samples.append(np.load(f"{partition_folder}/train_samples.npy"))
                 train_targets.append(np.load(f"{partition_folder}/train_labels.npy"))
@@ -90,7 +98,6 @@ class DataSource(base.DataSource):
             self.validationset = CustomCifar10(np.concatenate(val_samples), np.concatenate(val_targets), _transform)
             self.testset = CustomCifar10(np.concatenate(test_samples), np.concatenate(test_targets), _transform)
             return
-
 
         # Specific partition folder
         partition_folder = f"{self._root}/Client-{client_id}"

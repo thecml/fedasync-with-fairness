@@ -41,7 +41,7 @@ server:
     do_final_test: true
 
     # Parameter for FedAsync
-    periodic_interval: 10 # default: 30
+    periodic_interval: 30
     staleness_bound: 99999
     minimum_clients_aggregated: 1
     mixing_hyperparameter: 0.9

@@ -70,17 +70,11 @@ class Server(fedavg.Server):
             func_type = size_func_param.type.lower()
             trainsetDF = self.datasource.trainset.data
             if func_type == "total":
-                sum = 0
-                for id in self.datasource.sortedIds[:Config().clients.total_clients]:
-                    sum += len(trainsetDF[trainsetDF.LabID==id])
-                self.size_divisor = sum
+                self.size_divisor = trainsetDF.shape[0]
             elif func_type == "largest":
-                self.size_divisor = len(trainsetDF[trainsetDF.LabID==self.datasource.sortedIds[0]])
+                self.size_divisor = max(self.datasource.client_sizes.values())
             elif func_type == "positives":
-                ratios = []
-                for id in self.datasource.sortedIds[:Config().clients.total_clients]:
-                    ratios.append(len(trainsetDF[(trainsetDF.LabID==id) & (trainsetDF.Label==1)])/len(trainsetDF[trainsetDF.LabID==id]))
-                self.size_divisor = np.max(ratios)
+                raise NotImplementedError("positive ratios not implemented")
             else:
                 logging.warning(
                     "FedAsync: Unknown size weighting function type. "
