@@ -62,12 +62,16 @@ server:
 
 data:
     # The training and testing dataset
-    datasource: Embryos
-    size_sorted: true
+    datasource: CIFAR10
+
+    # Number of samples in each partition
+    partition_size: 600
 
     # IID or non-IID?
-    sampler: all_inclusive
-    testset_sampler: all_inclusive
+    sampler: noniid
+
+    # The concentration parameter for the Dirichlet distribution
+    concentration: 0.3
 
     random_seed: 42
     reload_data: true
@@ -83,27 +87,24 @@ trainer:
     max_concurrency: 10
 
     # The machine learning model
-    model_name: lowgpuEmbryosNew
+    model_name: resnet_18
 
     # Number of epoches for local training in each communication round
-    epochs: 1
-    batch_size: 16
-    optimizer: RMSprop
-
-    loss_criterion: BCEWithLogitsLoss
+    epochs: 5
+    batch_size: 32
+    optimizer: Adam
+    loss_criterion: CrossEntropyLoss
 
 algorithm:
     # Aggregation algorithm
     type: fedavg
 
 parameters:
-    experiment_name: "Proposal_3"
+    experiment_name: "cifar10_proposal_3"
     optimizer:
-        lr: 0.0001
-        momentum: 0.0 # learning rate is fixed as in Appendix C.2
-        weight_decay: 0
+        lr: 0.001
 
 results:
     result_path: results/fedasync/embryos
     # Write the following parameter(s) into a CSV
-    types: round, elapsed_time, comm_time, round_time, comm_overhead, train_loss, test_loss, auroc, accuracy, precision, recall
+    types: aggregations, round, elapsed_time, comm_time, round_time, comm_overhead, train_loss, train_accuracy, test_loss, test_accuracy

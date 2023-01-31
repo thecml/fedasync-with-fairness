@@ -3,14 +3,9 @@ Base class for sampling data so that a dataset can be divided across the clients
 """
 import os
 from abc import abstractmethod
-from enum import Enum
 
 from plato.config import Config
 
-class DataType(Enum):
-    Train = 0
-    Validation = 1
-    Test = 2
 
 class Sampler:
     """Base class for data samplers so that the dataset is divided into

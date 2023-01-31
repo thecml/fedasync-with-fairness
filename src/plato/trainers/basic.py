@@ -11,6 +11,7 @@ import random
 import re
 import time
 from types import SimpleNamespace
+from typing import Tuple
 
 import torch
 from torchmetrics.classification import BinaryAUROC, BinaryAccuracy, BinaryPrecision, BinaryRecall, MulticlassAUROC, \
@@ -198,22 +199,23 @@ class Trainer(base.Trainer):
 
         for self.current_epoch in range(1, total_epochs + 1):
             self._loss_tracker.reset()
+
             self.train_epoch_start(config)
             self.callback_handler.call_event("on_train_epoch_start", self, config)
 
+            correct = 0
             for batch_id, (examples, labels) in enumerate(self.train_loader):
                 examples, labels = examples.to(self.device), labels.to(self.device)
                 optimizer.zero_grad()
 
                 outputs = self.model(examples)
 
-
-                if (hasattr(Config.trainer, "loss_criterion") and Config().trainer.loss_criterion == "BCEWithLogitsLoss"):
-                    labels = labels.float()
-                    outputs = outputs.squeeze(dim=1)
-
                 loss = _loss_criterion(outputs, labels)
                 self._loss_tracker.update(loss, labels.size(0))
+
+                probs = torch.softmax(outputs, dim=1)
+                winners = probs.argmax(dim=1)
+                correct += (winners == labels).float().sum()
 
                 if "create_graph" in config:
                     loss.backward(create_graph=config["create_graph"])
@@ -226,6 +228,8 @@ class Trainer(base.Trainer):
                 self.callback_handler.call_event(
                     "on_train_step_end", self, config, batch=batch_id, loss=loss
                 )
+
+            accuracy = correct/len(trainset)
 
             self.lr_scheduler_step()
 
@@ -254,13 +258,14 @@ class Trainer(base.Trainer):
                 self.model.to(self.device)
 
             self.run_history.update_metric("train_loss", self._loss_tracker.average)
+            self.run_history.update_metric("train_accuracy", accuracy.item())
             self.train_epoch_end(config)
             self.callback_handler.call_event("on_train_epoch_end", self, config)
 
         self.train_run_end(config)
         self.callback_handler.call_event("on_train_run_end", self, config)
 
-    def train(self, trainset, sampler, **kwargs) -> (float, float):
+    def train(self, trainset, sampler, **kwargs) -> (Tuple[float, float]):
         """The main training loop in a federated learning workload.
 
         Arguments:
@@ -310,7 +315,8 @@ class Trainer(base.Trainer):
 
         training_time = toc - tic
         train_loss = self.run_history.get_metric_values('train_loss')[0]
-        return training_time, train_loss
+        train_accuracy = self.run_history.get_metric_values('train_accuracy')[0]
+        return training_time, train_loss, train_accuracy
 
     def test_process(self, config, testset, sampler=None, **kwargs):
         """The testing loop, run in a separate process with a new CUDA context,
@@ -331,9 +337,9 @@ class Trainer(base.Trainer):
 
         try:
             if sampler is None:
-                loss, auroc, accuracy, precision, recall, predictions, f1, aupr = self.test_model(config, testset, **kwargs)
+                loss, accuracy = self.test_model(config, testset, **kwargs)
             else:
-                loss, auroc, accuracy, precision, recall, predictions, f1, aupr = self.test_model(config, testset, sampler.get(), **kwargs)
+                loss, accuracy = self.test_model(config, testset, sampler.get(), **kwargs)
 
         except Exception as testing_exception:
             logging.info("Testing on client #%d failed.", self.client_id)
@@ -343,35 +349,16 @@ class Trainer(base.Trainer):
 
         if "max_concurrency" in config:
             model_name = config["model_name"]
-            
-            filename = f"{model_name}_{self.client_id}_{config['run_id']}.auroc"
-            self.save_auroc(auroc, filename)
-            
-            filename = f"{model_name}_{self.client_id}_{config['run_id']}.predictions"
-            self.save_predictions(predictions, filename)
-            
+
             filename = f"{model_name}_{self.client_id}_{config['run_id']}.accuracy"
             self.save_accuracy(accuracy, filename)
 
             filename = f"{model_name}_{self.client_id}_{config['run_id']}.loss"
             self.save_loss(loss, filename)
-
-            filename = f"{model_name}_{self.client_id}_{config['run_id']}.precision"
-            self.save_precision(precision, filename)
-
-            filename = f"{model_name}_{self.client_id}_{config['run_id']}.recall"
-            self.save_recall(recall, filename)
-
-            filename = f"{model_name}_{self.client_id}_{config['run_id']}.f1"
-            self.save_f1(f1, filename)
-
-            filename = f"{model_name}_{self.client_id}_{config['run_id']}.aupr"
-            self.save_aupr(aupr, filename)
-            
         else:
-            return loss, auroc, accuracy, precision, recall, predictions, f1, aupr
+            return loss, accuracy
 
-    def test(self, testset, sampler=None, **kwargs) -> (float, float):
+    def test(self, testset, sampler=None, **kwargs) -> (Tuple[float, float]):
         """Testing the model using the provided test dataset.
 
         Arguments:
@@ -395,21 +382,6 @@ class Trainer(base.Trainer):
             accuracy = -1
             try:
                 model_name = Config().trainer.model_name
-                
-                filename = (
-                    f"{model_name}_{self.client_id}_{Config().params['run_id']}.auroc"
-                )
-                auroc = self.load_auroc(filename)
-                
-                filename = (
-                   f"{model_name}_{self.client_id}_{Config().params['run_id']}.predictions"
-                )
-                predictions = self.load_predictions(filename)
-                
-                filename = (
-                    f"{model_name}_{self.client_id}_{Config().params['run_id']}.accuracy"
-                )
-                accuracy = self.load_accuracy(filename)
 
                 filename = (
                     f"{model_name}_{self.client_id}_{Config().params['run_id']}.loss"
@@ -417,24 +389,9 @@ class Trainer(base.Trainer):
                 loss = self.load_loss(filename)
 
                 filename = (
-                    f"{model_name}_{self.client_id}_{Config().params['run_id']}.precision"
+                    f"{model_name}_{self.client_id}_{Config().params['run_id']}.accuracy"
                 )
-                precision = self.load_precision(filename)
-
-                filename = (
-                    f"{model_name}_{self.client_id}_{Config().params['run_id']}.recall"
-                )
-                recall = self.load_recall(filename)
-
-                filename = (
-                    f"{model_name}_{self.client_id}_{Config().params['run_id']}.f1"
-                )
-                f1 = self.load_f1(filename)
-
-                filename = (
-                    f"{model_name}_{self.client_id}_{Config().params['run_id']}.aupr"
-                )
-                aupr = self.load_aupr(filename)
+                accuracy = self.load_accuracy(filename)
 
             except OSError as error:  # the model file is not found, training failed
                 raise ValueError(
@@ -443,9 +400,9 @@ class Trainer(base.Trainer):
 
             self.pause_training()
         else:
-            loss, auroc, accuracy, precision, recall, predictions, f1, aupr = self.test_process(config, testset, **kwargs)
+            loss, accuracy = self.test_process(config, testset, **kwargs)
 
-        return loss, auroc, accuracy, precision, recall, predictions, f1, aupr
+        return loss, accuracy
 
     def obtain_model_update(self, wall_time):
         """
@@ -521,109 +478,33 @@ class Trainer(base.Trainer):
         loss_total = 0
 
         self.model.to(self.device)
-        
-        if (hasattr(Config.trainer, "loss_criterion") and Config().trainer.loss_criterion == "BCEWithLogitsLoss"):
-            rocauc = BinaryAUROC().to(self.device)
-            acc = BinaryAccuracy().to(self.device)
-            prec = BinaryPrecision().to(self.device)
-            rec = BinaryRecall().to(self.device)
-            f1 = BinaryF1Score().to(self.device)
-            prauc = BinaryAveragePrecision().to(self.device)
-        else:
-            num_classes = Config().results.num_classes if hasattr(Config().results, "num_classes") else 10       
-            rocauc = MulticlassAUROC(average='macro', num_classes=num_classes).to(self.device)
-            acc = MulticlassAccuracy(average='macro', num_classes=num_classes).to(self.device)
-            prec = MulticlassPrecision(average='macro', num_classes=num_classes).to(self.device)
-            rec = MulticlassRecall(average='macro', num_classes=num_classes).to(self.device)
-            f1 = MulticlassF1Score(average='macro', num_classes=num_classes).to(self.device)
-            prauc = MulticlassAveragePrecision(average='macro', num_classes=num_classes).to(self.device)
-        
+
+        num_classes = Config().results.num_classes if hasattr(Config().results, "num_classes") else 10
+        acc = MulticlassAccuracy(average='macro', num_classes=num_classes).to(self.device)
+
         with torch.no_grad():
-            test_outputs = []
-            test_labels = []
-            test_predicted = []
-            
             for examples, labels in test_loader:
                 examples, labels = examples.to(self.device), labels.to(self.device)
 
                 outputs = self.model(examples)
-                
-                # Loss
-                if (hasattr(Config.trainer, "loss_criterion") and Config().trainer.loss_criterion == "BCEWithLogitsLoss"):
-                    outputs = outputs.squeeze(dim=1)
-                    loss_total += loss_criterion.get()(outputs, labels.float()).item()
-                    predicted = (outputs > 0).long()
-                    correct += (predicted == labels).sum().item()
-                    total += labels.size(0)
-                    
-                    rocauc(outputs, labels)
-                    acc(outputs, labels)
-                    prec(outputs, labels)
-                    rec(outputs, labels)
-                    f1(outputs, labels)
-                    prauc(outputs, labels)
-                else:
-                    loss_total += loss_criterion.get()(outputs, labels).item()
-                    _, predicted = torch.max(outputs.data, 1)
-                    total += labels.size(0)
-                    correct += (predicted == labels).sum().item()
-                
-                    rocauc(outputs, labels)
-                    acc(outputs, labels)
-                    prec(outputs, labels)
-                    rec(outputs, labels)
-                    f1(outputs, labels)
-                    prauc(outputs, labels)
-                
-                test_outputs.extend(outputs)
-                test_labels.extend(labels)
-                test_predicted.extend(predicted.tolist())
 
-            print("test_outputs: {}".format(len(test_outputs)))
-            print("test_labels: {}".format(len(test_labels)))
-            print("test_predicted: {}".format(len(test_predicted)))
-            
-            if Config().data.datasource == "Embryos":
-                labels = torch.FloatTensor(test_labels)
-                logits = torch.FloatTensor(test_outputs)
-                labels = labels.cpu()
-                logits = logits.cpu()
-            
-                probability = torch.sigmoid(logits)
-                both_probabilities = numpy.vstack((1 - probability.numpy(), probability)).T
-                predictionsDictionary = {
-                    "labels": labels.tolist(),
-                    "predictions": test_predicted,
-                    "probabilities": both_probabilities.tolist(),   
-                }
-            else:
-                labels = torch.FloatTensor(test_labels)
-                logits = torch.cat([tensor.reshape(1, -1) for tensor in test_outputs], dim=0)
-                labels = labels.cpu()
-                logits = logits.cpu()
-                
-                predictionsDictionary = {
-                    "labels": labels.tolist(),
-                    "predictions": test_predicted,
-                    "logits": logits.tolist(),
-                }
-        
-        if len(test_loader) != 0:        
+                # Loss
+                loss_total += loss_criterion.get()(outputs, labels).item()
+                _, predicted = torch.max(outputs.data, 1)
+                total += labels.size(0)
+                correct += (predicted == labels).sum().item()
+                acc(outputs, labels)
+
+        if len(test_loader) != 0:
             loss = loss_total / len(test_loader)
         else:
             loss = loss_total
-        
-        
+
+        # Compute accuracy
         accuracy = acc.compute()
-        precision = prec.compute()
-        recall = rec.compute()
-        auroc = rocauc.compute()
-        f1_score = f1.compute()
-        aupr = prauc.compute()
-        
+
         #accuracy = correct / total
-        return loss, auroc.item(), accuracy.item(), precision.item(),\
-               recall.item(), predictionsDictionary, f1_score.item(), aupr.item()
+        return loss, accuracy.item()
 
     def get_optimizer(self, model):
         """Returns the optimizer."""

@@ -118,7 +118,7 @@ class DataSource:
     def get_train_set(self):
         """ Obtains the training dataset. """
         return self.trainset
-    
+
     def get_validation_set(self):
         """ Obtains the validation dataset. """
         if self.validationset == None and not self.testset == None:

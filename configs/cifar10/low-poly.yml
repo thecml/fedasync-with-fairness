@@ -60,11 +60,16 @@ server:
 
 data:
     # The training and testing dataset
-    datasource: PartitionedCIFAR10
+    datasource: CIFAR10
+
+    # Number of samples in each partition
+    partition_size: 600
 
     # IID or non-IID?
-    sampler: all_inclusive
-    testset_sampler: all_inclusive
+    sampler: noniid
+
+    # The concentration parameter for the Dirichlet distribution
+    concentration: 0.3
 
     random_seed: 42
     reload_data: true
@@ -80,10 +85,10 @@ trainer:
     max_concurrency: 10
 
     # The machine learning model
-    model_name: lowgpuCifar10
+    model_name: resnet_18
 
     # Number of epoches for local training in each communication round
-    epochs: 1
+    epochs: 5
     batch_size: 32
     optimizer: Adam
     loss_criterion: CrossEntropyLoss
@@ -104,4 +109,4 @@ wandb:
 results:
     result_path: results/fedasync/cifar10
     # Write the following parameter(s) into a CSV
-    types: aggregations, round, elapsed_time, comm_time, round_time, comm_overhead, train_loss, test_loss, accuracy
+    types: aggregations, round, elapsed_time, comm_time, round_time, comm_overhead, train_loss, train_accuracy, test_loss, test_accuracy

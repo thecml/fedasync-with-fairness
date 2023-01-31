@@ -9,7 +9,6 @@ from collections import OrderedDict
 import numpy as np
 
 from plato.config import Config
-from plato.samplers.base import DataType
 
 if hasattr(Config().trainer, "use_mindspore"):
     from plato.samplers.mindspore import (
@@ -65,20 +64,19 @@ else:
     )
 
 
-def get(datasource, client_id, data_type: DataType = DataType.Train):
+def get(datasource, client_id, testing=False):
     """Get an instance of the sampler."""
-    if data_type == DataType.Train or data_type == DataType.Validation:
-        sampler_type = Config().data.sampler
-        logging.info("[Client #%d] Sampler: %s", client_id, sampler_type)
-    elif data_type == DataType.Test and hasattr(Config().data, "testset_sampler"):
+
+    if testing and hasattr(Config().data, "testset_sampler"):
         sampler_type = Config().data.testset_sampler
         logging.info("[Client #%d] Test set sampler: %s", client_id, sampler_type)
     else:
-        raise NotImplementedError()
+        sampler_type = Config().data.sampler
+        logging.info("[Client #%d] Sampler: %s", client_id, sampler_type)
 
     if sampler_type in registered_samplers:
         registered_sampler = registered_samplers[sampler_type](
-            datasource, client_id, data_type
+            datasource, client_id, testing=testing
         )
     else:
         raise ValueError(f"No such sampler: {sampler_type}")

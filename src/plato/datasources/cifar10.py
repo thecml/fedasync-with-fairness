@@ -6,34 +6,56 @@ from torchvision import datasets, transforms
 
 from plato.config import Config
 from plato.datasources import base
-import torch
-import torch.utils.data as data_utils
+
 
 class DataSource(base.DataSource):
     """The CIFAR-10 dataset."""
 
-    def __init__(self):
+    def __init__(self, **kwargs):
         super().__init__()
-        _path = Config().params['data_path']
+        _path = Config().params["data_path"]
 
-        transform = transforms.Compose([
-            transforms.ToTensor(),
-            transforms.Normalize([0.49139968, 0.48215827, 0.44653124], [0.24703233, 0.24348505, 0.26158768])
-                                       ])
+        train_transform = (
+            kwargs["train_transform"]
+            if "train_transform" in kwargs
+            else (
+                transforms.Compose(
+                    [
+                        transforms.RandomHorizontalFlip(),
+                        transforms.RandomCrop(32, 4),
+                        transforms.ToTensor(),
+                        transforms.Normalize(
+                            [0.485, 0.456, 0.406], [0.229, 0.224, 0.225]
+                        ),
+                    ]
+                )
+            )
+        )
 
-        train_dataset = datasets.CIFAR10(root=_path,
-                                         train=True,
-                                         download=True,
-                                         transform=transform)
-        self.testset = datasets.CIFAR10(root=_path,
-                                        train=False,
-                                        download=True,
-                                        transform=transform)
+        test_transform = (
+            kwargs["test_transform"]
+            if "test_transform" in kwargs
+            else (
+                transforms.Compose(
+                    [
+                        transforms.ToTensor(),
+                        transforms.Normalize(
+                            [0.485, 0.456, 0.406], [0.229, 0.224, 0.225]
+                        ),
+                    ]
+                )
+            )
+        )
 
-        train_len = int(len(train_dataset) * 0.8)
-        validation_len = int(len(train_dataset) - train_len)
+        self.trainset = datasets.CIFAR10(
+            root=_path, train=True, download=True, transform=train_transform
+        )
+        self.testset = datasets.CIFAR10(
+            root=_path, train=False, download=True, transform=test_transform
+        )
 
-        self.trainset, self.validationset = torch.utils.data.random_split(train_dataset,
-                                                                          [train_len, validation_len],
-                                                                          generator=torch.Generator().manual_seed(
-                                                                              42))
+    def num_train_examples(self):
+        return 50000
+
+    def num_test_examples(self):
+        return 10000

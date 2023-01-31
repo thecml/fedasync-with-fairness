@@ -12,7 +12,6 @@ from plato.config import Config
 from plato.datasources import registry as datasources_registry
 from plato.processors import registry as processor_registry
 from plato.samplers import registry as samplers_registry
-from plato.samplers.base import DataType
 from plato.trainers import registry as trainers_registry
 from plato.utils import fonts
 
@@ -101,19 +100,11 @@ class Client(base.Client):
             self.trainset = self.datasource.get_train_set()
 
         if hasattr(Config().clients, "do_test") and Config().clients.do_test:
-            # Here we load the validation data
-            self.validationset = self.datasource.get_validation_set()
-            if hasattr(Config().data, "testset_sampler"):
-                # Set the sampler for test set
-                self.validationset_sampler = samplers_registry.get(
-                    self.datasource, self.client_id, DataType.Validation
-                )
-        # calculate client positive rate
-        if (Config().data.datasource == "Embryos"):
-            self.positive_rate = (len(self.datasource.trainset.data[self.datasource.trainset.data.Label==1])/len(self.datasource.trainset.data))
-            logging.info("[%s] Training set positive rate: %s", self, self.positive_rate)
-        else:
-            self.positive_rate = 0
+            # Set the testset if local testing is needed
+            self.testset = self.datasource.get_test_set()
+
+        # Calculate client positive rate TODO: Look for ways to do this
+        self.positive_rate = 0
 
     def load_payload(self, server_payload) -> None:
         """Loads the server model onto this client."""
@@ -126,29 +117,29 @@ class Client(base.Client):
                 f"[{self}] Started training in communication round #{self.current_round}."
             )
         )
-        # performing model testing if applicable
+        # Perform model testing if applicable
         if (hasattr(Config().clients, "do_test") and Config().clients.do_test) and (
             not hasattr(Config().clients, "test_interval")
             or self.current_round % Config().clients.test_interval == 0
         ):
-            validation_loss, auroc, accuracy, precision, recall, _, f1, aupr = self.trainer.test(self.validationset, self.validationset_sampler)
+            test_loss, test_accuracy = self.trainer.test(self.testset, self.testset_sampler)
 
-            if accuracy == -1:
+            if test_accuracy == -1:
                 # The testing process failed, disconnect from the server
                 await self.sio.disconnect()
 
             if hasattr(Config().trainer, "target_perplexity"):
-                logging.info("[%s] Test perplexity: %.2f", self, accuracy)
+                logging.info("[%s] Test perplexity: %.2f", self, test_accuracy)
             else:
-                logging.info("[%s] Test accuracy: %.2f%%", self, 100 * accuracy)
+                logging.info("[%s] Test accuracy: %.2f%%", self, 100 * test_accuracy)
         else:
-            accuracy = 0
+            test_accuracy = 0
 
         # Perform model training
         try:
             if hasattr(self.trainer, "current_round"):
                 self.trainer.current_round = self.current_round
-            training_time, train_loss = self.trainer.train(self.trainset, self.sampler)
+            training_time, train_loss, train_accuracy = self.trainer.train(self.trainset, self.sampler)
         except ValueError as exc:
             logging.info(
                 fonts.colourize(f"[{self}] Error occurred during training: {exc}")
@@ -173,17 +164,13 @@ class Client(base.Client):
 
         report = SimpleNamespace(
             num_samples=self.sampler.num_samples(),
-            auroc=auroc,
-            accuracy=accuracy,
+            train_loss=train_loss,
+            train_accuracy=train_accuracy,
+            test_loss=test_loss,
+            test_accuracy=test_accuracy,
             training_time=training_time,
             comm_time=comm_time,
             update_response=False,
-            validation_loss=validation_loss,
-            train_loss=train_loss,
-            precision=precision,
-            recall=recall,
-            f1=f1,
-            aupr=aupr,
             staleness=self.staleness,
             positive_rate=self.positive_rate
             )

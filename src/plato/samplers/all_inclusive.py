@@ -6,7 +6,6 @@ import random
 
 from plato.samplers import base
 from plato.config import Config
-from plato.samplers.base import DataType
 
 
 class Sampler(base.Sampler):
@@ -14,18 +13,20 @@ class Sampler(base.Sampler):
     Used by the MistNet server.
     """
 
-    def __init__(self, datasource, client_id=0, data_type: DataType = DataType.Train):
+    def __init__(self, datasource, client_id=0, testing=False):
         super().__init__()
         self.client_id = client_id
 
-        if data_type == DataType.Train:
-            self.data_samples = range(len(datasource.get_train_set()))
-        elif data_type == DataType.Validation:
-            self.data_samples = range(len(datasource.get_validation_set()))
-        elif data_type == DataType.Test:
-            self.data_samples = range(len(datasource.get_test_set()))
+        if testing:
+            all_inclusive = range(len(datasource.get_test_set()))
+            if hasattr(Config().data, "testset_size"):
+                self.data_samples = random.sample(
+                    all_inclusive, Config().data.testset_size
+                )
+            else:
+                self.data_samples = all_inclusive
         else:
-            raise NotImplementedError("Unknown dataType")
+            self.data_samples = range(len(datasource.get_train_set()))
 
     def get(self):
         if hasattr(Config().trainer, "use_mindspore"):

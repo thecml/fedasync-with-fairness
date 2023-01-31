@@ -10,7 +10,6 @@ from plato.algorithms import registry as algorithms_registry
 from plato.config import Config
 from plato.datasources import registry as datasources_registry
 from plato.processors import registry as processor_registry
-from plato.samplers.base import DataType
 from plato.servers import base
 from plato.trainers import registry as trainers_registry
 from plato.utils import csv_processor
@@ -103,7 +102,7 @@ class Server(base.Server):
             self.validationset = self.datasource.get_validation_set()
             if hasattr(Config().data, "testset_size"):
                 self.validationset_sampler = all_inclusive.Sampler(
-                    self.datasource, DataType.Validation
+                    self.datasource, testing=True
                 )
 
         if hasattr(Config().server, "do_final_test") and Config().server.do_final_test:
@@ -114,11 +113,11 @@ class Server(base.Server):
 
             self.testset = self.datasource.get_test_set()
             self.testset_sampler = all_inclusive.Sampler(
-                self.datasource, 0, DataType.Test)
+                self.datasource, 0, testing=True)
 
             self.validationset = self.datasource.get_validation_set()
             self.validation_sampler = all_inclusive.Sampler(
-                self.datasource, 0, DataType.Validation)
+                self.datasource, 0, testing=True)
 
 
         # Initialize the csv file which will record results
@@ -226,78 +225,58 @@ class Server(base.Server):
         self.weights_aggregated(self.updates)
         self.callback_handler.call_event("on_weights_aggregated", self, self.updates)
 
-        #Testing the global model accuracy
+        # Testing the global model accuracy
         if hasattr(Config().server, "do_test") and not Config().server.do_test: # If not doing central testing
             # Compute the average accuracy from client reports
-            self.auroc, self.accuracy, self.test_loss, self.train_loss,\
-            self.precision, self.recall, self.f1, self.aupr = self.metric_weighted_averaging(self.updates)
-            if (Config().data.datasource == "Embryos"):
-                if self.auroc > self.best_model_metric:
-                    self.best_model_round = self.current_round
-                    self.best_model_metric = self.auroc
-            else:
-                if self.accuracy > self.best_model_metric:
-                    self.best_model_round = self.current_round
-                    self.best_model_metric = self.accuracy
+            self.train_accuracy, self.train_loss, self.test_accuracy, self.test_loss = self.metric_weighted_averaging(self.updates)
+
+            if self.train_accuracy > self.best_model_metric:
+                self.best_model_round = self.current_round
+                self.best_model_metric = self.train_accuracy
 
             logging.info(
-                "[%s] Average client auroc: %.2f%%.", self, self.auroc
+                "[%s] Average client train accuracy: %.2f%%.", self, 100 * self.train_accuracy
             )
+
             logging.info(
-                "[%s] Average client accuracy: %.2f%%.", self, 100 * self.accuracy
+                "[%s] Average client train loss: %.2f%%.", self, self.train_loss
+            )
+
+            logging.info(
+                "[%s] Average client test accuracy: %.2f%%.", self, 100 * self.test_accuracy
             )
 
             logging.info(
                 "[%s] Average client test loss: %.2f", self,  self.test_loss
             )
 
-            logging.info(
-                "[%s] Average client train loss: %.2f", self, self.train_loss
-            )
-
-            logging.info(
-                "[%s] Average client precision: %.2f", self, self.precision
-            )
-
-            logging.info(
-                "[%s] Average client recall: %.2f", self, self.recall
-            )
-
         else: # If doing central testing - Testing the updated model directly at the server
 
             if hasattr(Config().server, "synchronous") and not Config().server.synchronous:
-                validation_loss, auroc, accuracy, precision, recall, _, f1, aupr = self.trainer.test(self.validationset, self.validationset_sampler)
+                test_loss, test_accuracy = self.trainer.test(self.testset, self.testset_sampler)
+
                 logging.info(
-                    "[%s] Global model accuracy: %.2f%%\n", self, 100*accuracy
+                    "[%s] Global model accuracy: %.2f%%\n", self, 100*test_accuracy
                 )
+
                 self.wandb_logger.log({
                 f"aggregations": self.current_aggregation_count,
                 f"round": self.current_round,
-                f"val/central_auroc": auroc,
-                f"val/central_accuracy": accuracy,
-                f"val/central_loss": validation_loss,
-                f"val/central_precision": precision,
-                f"val/central_recall": recall,
-                f"val/central_f1": f1,
-                f"val/central_aupr": aupr
+                f"test/central_accuracy": test_accuracy,
+                f"test/central_loss": test_loss,
                 }, step=self.current_round)
 
-                if (Config().data.datasource == "Embryos"):
-                    if auroc > self.best_model_metric:
-                        self.best_model_round = self.current_round
-                        self.best_model_metric = auroc
-                else:
-                    if accuracy > self.best_model_metric:
-                        self.best_model_round = self.current_round
-                        self.best_model_metric = accuracy
+                if test_accuracy > self.best_model_metric:
+                    self.best_model_round = self.current_round
+                    self.best_model_metric = test_accuracy
             else:
-                self.accuracy = self.trainer.test(self.validationset, self.validationset_sampler)
+                self.test_loss, self.test_accuracy = self.trainer.test(self.testset, self.testset_sampler)
 
         if hasattr(Config().trainer, "target_perplexity"):
-            logging.info("[%s] Global model perplexity: %.2f\n", self, self.accuracy)
+            logging.info("[%s] Global model perplexity: %.2f\n", self, self.train_accuracy)
         else:
             logging.info(
-                "[%s] Global model accuracy: %.2f%%\n", self, 100 * self.accuracy
+                "[%s] Global model train accuracy: %.2f%%\n", self, 100 * self.train_accuracy
             )
 
         await self.wrap_up_processing_reports()
@@ -324,11 +303,9 @@ class Server(base.Server):
                     self.current_round,
                     update.client_id,
                     update.report.train_loss,
-                    update.report.validation_loss,
-                    update.report.auroc,
-                    update.report.accuracy,
-                    update.report.precision,
-                    update.report.recall,
+                    update.report.train_accuracy,
+                    update.report.test_loss,
+                    update.report.test_accuracy,
                     update.staleness
                 ]
 
@@ -346,11 +323,9 @@ class Server(base.Server):
             ),
             "comm_overhead": self.comm_overhead,
             "train_loss": self.train_loss,
+            "train_accuracy": self.train_accuracy,
             "test_loss": self.test_loss,
-            "auroc": self.auroc,
-            "accuracy": self.accuracy,
-            "precision": self.precision,
-            "recall": self.recall
+            "test_accuracy": self.test_accuracy
         }
 
     def weights_received(self, weights_received):
