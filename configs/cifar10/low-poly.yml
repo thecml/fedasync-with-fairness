@@ -69,7 +69,7 @@ data:
     sampler: noniid
 
     # The concentration parameter for the Dirichlet distribution
-    concentration: 0.3
+    concentration: 100
 
     random_seed: 42
     reload_data: true

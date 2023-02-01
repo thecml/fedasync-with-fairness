@@ -4,9 +4,10 @@ import logging
 from datetime import datetime
 
 class WANDBLogger:
-    _projectName = Config().wandb.project_name
-    _groupName = Config().params["experiment_name"]
-    _entityName = Config().wandb.entity_name
+    if hasattr(Config(), "wandb"):
+        _projectName = Config().wandb.project_name
+        _groupName = Config().params["experiment_name"]
+        _entityName = Config().wandb.entity_name
     
     def configure(cls, projectName, groupName, entityName) -> None:
         cls._projectName = projectName
@@ -36,7 +37,6 @@ class WANDBLogger:
     def finish(self) -> None:
         wandb.finish()
         self._initiated = False
-    
     
     def log(self,
         data: any,

@@ -239,7 +239,7 @@ class Server(base.Server):
             )
 
             logging.info(
-                "[%s] Average client train loss: %.2f%%.", self, self.train_loss
+                "[%s] Average client train loss: %.2f", self, self.train_loss
             )
 
             logging.info(
@@ -259,12 +259,13 @@ class Server(base.Server):
                     "[%s] Global model accuracy: %.2f%%\n", self, 100*test_accuracy
                 )
 
-                self.wandb_logger.log({
-                f"aggregations": self.current_aggregation_count,
-                f"round": self.current_round,
-                f"test/central_accuracy": test_accuracy,
-                f"test/central_loss": test_loss,
-                }, step=self.current_round)
+                if hasattr(Config(), "wandb"):
+                    self.wandb_logger.log({
+                    f"aggregations": self.current_aggregation_count,
+                    f"round": self.current_round,
+                    f"test/central_accuracy": test_accuracy,
+                    f"test/central_loss": test_loss,
+                    }, step=self.current_round)
 
                 if test_accuracy > self.best_model_metric:
                     self.best_model_round = self.current_round

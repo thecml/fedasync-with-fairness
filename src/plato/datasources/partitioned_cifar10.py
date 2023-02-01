@@ -5,7 +5,6 @@ import numpy as np
 from PIL import Image as Image
 from torchvision.datasets import VisionDataset
 from torchvision.transforms import transforms
-from wandb.wandb_torch import torch
 
 from plato.config import Config
 from plato.datasources import base

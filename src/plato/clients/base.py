@@ -11,7 +11,6 @@ import random
 import re
 import sys
 import uuid
-import wandb
 from abc import abstractmethod
 import numpy as np
 
@@ -20,7 +19,7 @@ from plato.callbacks.handler import CallbackHandler
 from plato.callbacks.client import PrintProgressCallback
 from plato.config import Config
 from plato.trainers.lr_schedulers import Step
-from plato.utils import s3, wandb_logger
+from plato.utils import s3
 
 
 class ClientEvents(socketio.AsyncClientNamespace):
@@ -297,11 +296,6 @@ class Client:
         self.server_payload = None
 
         report, payload = await self.train()
-        
-        # log training report to wandb and
-        #logging.info("[Client #%d] logging training report to wandb.", self.client_id)
-        #for attribute in list(report.__dict__):
-            #wandb.log({f"{attribute}": getattr(report, attribute), "epoch": self.current_round}, step=self.current_round)
 
         if Config().is_edge_server():
             logging.info(

@@ -105,9 +105,11 @@ class Server:
             if hasattr(Config().clients, "comm_simulation")
             else True
         )
-
-        # WanDB
-        self.wandb_logger = wandb_logger.WANDBLogger(None)
+        self.wandb_logger = (
+            wandb_logger.WANDBLogger(None)
+            if hasattr(Config(), "wandb")
+            else None
+        )
 
         # Define best model checkpoint
         self.best_model_round = 0
@@ -316,10 +318,11 @@ class Server:
         )
 
         # Registering wandb logger
-        self.wandb_logger.start()
-        logging.info(
-            "[{}] initiated wandb logging for experiment <{}>".format(self, Config().params["experiment_name"])
-        )
+        if hasattr(Config(), "wandb"):
+            self.wandb_logger.start()
+            logging.info(
+                "[{}] initiated wandb logging for experiment <{}>".format(self, Config().params["experiment_name"])
+            )
 
         self.sio = socketio.AsyncServer(
             ping_interval=self.ping_interval,
@@ -718,7 +721,8 @@ class Server:
                     self,
                     len(self.updates),
                 )
-                self.log_updates_to_wandb()
+                if hasattr(Config(), "wandb"):
+                    self.log_updates_to_wandb()
                 await self._process_reports()
                 await self.wrap_up()
                 await self.select_clients()
@@ -1062,7 +1066,8 @@ class Server:
                 os.getpid(),
                 len(self.updates),
             )
-            self.log_updates_to_wandb()
+            if hasattr(Config(), "wandb"):
+                self.log_updates_to_wandb()
             await self._process_reports()
             await self.wrap_up()
             await self.select_clients()
@@ -1110,7 +1115,8 @@ class Server:
                 self,
                 len(self.updates),
             )
-            self.log_updates_to_wandb()
+            if hasattr(Config(), "wandb"):
+                self.log_updates_to_wandb()
             await self._process_reports()
             await self.wrap_up()
             await self.select_clients()
@@ -1153,7 +1159,8 @@ class Server:
                             self,
                             len(self.updates),
                         )
-                        self.log_updates_to_wandb()
+                        if hasattr(Config(), "wandb"):
+                            self.log_updates_to_wandb()
                         await self._process_reports()
                         await self.wrap_up()
                         await self.select_clients()
@@ -1271,6 +1278,7 @@ class Server:
             await self.close()
 
         ''' # TODO: Figure out why this was done
+        # Use aggregation count as stopping criteria if running async
         if hasattr(Config().server, "synchronous") and not Config().server.synchronous:
             logging.info("{} aggregations performed in {} rounds.".format(self.current_aggregation_count, self.current_round))
             if self.current_aggregation_count >= Config().trainer.rounds * Config().clients.per_round:
@@ -1297,8 +1305,9 @@ class Server:
         self.server_will_close()
         self.callback_handler.call_event("on_server_will_close", self)
 
-        self.wandb_logger.finish()
-        wandb.finish()
+        if hasattr(Config(), "wandb"):
+            self.wandb_logger.finish()
+            wandb.finish()
         await self.close_connections()
 
         os._exit(0)
@@ -1470,10 +1479,10 @@ class Server:
 
             loss, accuracy = self.trainer.test(self.testset, self.testset_sampler)
 
-            #Logging parameters
-            self.wandb_logger.log({"final/central_test_loss": loss})
-            self.wandb_logger.log({"final/central_test_accuracy": accuracy})
-
-            if not Config().server.synchronous:
-                for clientId in self.client_aggregations.keys():
-                    self.wandb_logger.log({"aggregations/client#{}".format(clientId): self.client_aggregations[clientId]})
+            # Log to wandb
+            if hasattr(Config(), "wandb"):
+                self.wandb_logger.log({"final/central_test_loss": loss})
+                self.wandb_logger.log({"final/central_test_accuracy": accuracy})
+                if not Config().server.synchronous:
+                    for clientId in self.client_aggregations.keys():
+                        self.wandb_logger.log({"aggregations/client#{}".format(clientId): self.client_aggregations[clientId]})

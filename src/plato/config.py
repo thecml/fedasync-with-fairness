@@ -243,11 +243,9 @@ class Config:
                 
             if "wandb" in config:
                 Config.wandb = Config.namedtuple_from_dict(config["wandb"])
-
-            # Setting the experiment name for wandb logging
-            Config.params["experiment_name"] = cls._timestamp
-            if hasattr(Config, "parameters") and hasattr(Config().parameters, "experiment_name"):
-                Config.params["experiment_name"] = Config().parameters.experiment_name
+                Config.params["experiment_name"] = cls._timestamp
+                if hasattr(Config, "parameters") and hasattr(Config().parameters, "experiment_name"):
+                    Config.params["experiment_name"] = Config().parameters.experiment_name
 
         return cls._instance
 
