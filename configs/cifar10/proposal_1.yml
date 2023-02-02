@@ -65,7 +65,7 @@ data:
     datasource: CIFAR10
 
     # Number of samples in each partition
-    partition_size: 600
+    partition_size: 6000
 
     # IID or non-IID?
     sampler: noniid
