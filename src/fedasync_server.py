@@ -72,7 +72,7 @@ class Server(fedavg.Server):
             if func_type == "total":
                 self.size_divisor = trainsetDF.shape[0]
             elif func_type == "largest":
-                self.size_divisor = max(self.datasource.client_sizes.values())
+                self.size_divisor = Config().data.partition_size
             elif func_type == "positives":
                 raise NotImplementedError("positive ratios not implemented")
             else:

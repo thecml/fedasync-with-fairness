@@ -19,7 +19,7 @@ FedAsync with proposed fairness improvements.
 Modifications have been made to the existing plato framework. The changes that have been made is listed below:
 - Added support for additional data sources. Pre-partitioned non-iid versions of Cifar-10 and MNIST, they can be generated with the data project. Furthermore, the Embryos data source is added.
 - Added support for a binary classification problem
-- Modification to the validation flow. Originally plato had to ways  of performing validation. Either on the client after it had modified its local model or on the server when the global model has been updated. Now doing it on the client we do it before the local model is updated, to get a representation of how the client performs on the global model and not the modified global model.
+- Modification to the validation flow. Originally plato had to ways of performing validation. Either on the client after it had modified its local model or on the server when the global model has been updated. Now doing it on the client we do it before the local model is updated, to get a representation of how the client performs on the global model and not the modified global model.
 - Doing validation on the server we track the best validation round.
 - Added a final test, where the best model from the best validation round is used. 
 - Added a final validation, so instead of the server doing validation each round, we in the end process all rounds of global models and perform validation. 
